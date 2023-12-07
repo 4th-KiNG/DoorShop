@@ -91,6 +91,7 @@ function MainPage() {
           <img src={floorFon} alt="" className='floor-fon element-to-animate'/>
         </div>
       </div>
+      
       <hr className='line-y'/>
       <div className='about-us1'>
         <div className='about-us' id='1'>
