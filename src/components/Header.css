@@ -1,0 +1,341 @@
+@font-face {
+    font-family: "20011"; 
+    src: url("../fonts/20011.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+}
+
+.header{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 2fr;
+    background-color: #EEFF29;
+    height: 140px;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    margin-left: 50%;
+}
+
+.logo-txt{
+    font-size: 25px;
+    font-family: 'Inder', sans-serif;
+    margin-top: 10%;
+}
+
+.logo-img{
+    width: 45%;
+    height: 45%;
+}
+
+.link-info{
+    display: flex;
+    align-items: center;
+    gap: 20%;
+    font-family: '20011';
+}
+
+.link-txt{
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+}
+
+.info{
+    margin-left: 18%;
+    margin-top: 2%;
+}
+
+.phone-img{
+    width: 8%;
+    height: 15%;
+    margin-right: 4%;
+    margin-left: 5%;
+    
+}
+
+.phone{
+    display: flex;
+}
+
+.numbers{
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+.number-txt{
+    font-family: '20011';
+    font-size: 20px;
+    margin: 0;
+}
+
+.time{
+    display: flex;
+}
+
+.clock-img{
+    width: 8%;
+    height: 10%;
+    margin-right: 4%;
+    margin-left: 5%;
+}
+
+.worktime{
+    font-family: '20011';
+    font-size: 24px;
+    margin-top: 1%;
+}
+
+a:hover{
+    text-decoration: none;
+    color: black;
+}
+
+@media (max-width: 2000px){
+    .header{
+        height: 120px;
+    }
+    .phone-img{
+        width: 10%;
+        height: 15%;
+    }
+    .clock-img{
+        width: 10%;
+        height: 10%;
+    }
+}
+
+@media (max-width: 1500px){
+    .link-txt{
+        font-size: 26px;
+    }
+    .header{
+        height: 110px;
+    }
+    .logo-img{
+        margin-left: 50%;
+    }
+    .phone-img{
+        margin-top: 3%;
+    }
+    .worktime{
+        font-size: 22px;
+        
+    }
+}
+
+@media (max-width: 1024px){
+    .link-txt{
+        font-size: 21px;
+    }
+    .link-info{
+        gap: 15%;
+        width: 180px;
+    }
+    .header{
+        height: 90px;
+    }
+    .logo-txt{
+        font-size: 20px;
+    }
+    .logo-img{
+        margin-left: 130%;
+    }
+    .phone-img{
+        margin-top: 5%;
+        width: 12%;
+        margin-left: 0;
+    }
+    .clock-img{
+        margin-top: 2%;
+        margin-left: 1%;
+    }
+    .worktime{
+        font-size: 18px;
+        margin-bottom: 0;
+    }
+    .number-txt{
+        font-size: 16px;
+    }
+    .logo-txt{
+        margin-top: 20%;
+    }
+}
+
+@media (max-width: 768px){
+    .link-txt{
+        font-size: 18px;
+        
+    }
+    .link-info{
+        gap: 15%;
+        width: 180px;
+    }
+    .header{
+        height: 70px;
+    }
+    .logo-txt{
+        font-size: 16px;
+        margin-top: 25%;
+    }
+    .logo-img{
+        margin-left: 130%;
+    }
+    .phone-img{
+        margin-top: 5%;
+        width: 18%;
+        margin-left: -15px;
+    }
+    .clock-img{
+        margin-top: -0.5%;
+        width: 15%;
+        margin-left: -15px;
+    }
+    .worktime{
+        font-size: 15px;
+        margin-bottom: 0;
+        margin-left: 4px;
+        margin-top: -1px;
+    }
+    .number-txt{
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 425px){
+    .link-txt{
+        font-size: 12px;
+        
+    }
+    .link-info{
+        gap: 12%;
+        width: 100px;
+    }
+    .header{
+        height: 50px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .logo-txt{
+        font-size: 12px;
+        margin-top: 30%;
+    }
+    .logo-img{
+        margin-left: 60%;
+    }
+    .info{
+        margin-left: 10px;
+    }
+    .phone-img{
+        margin-top: 5%;
+        width: 18%;
+        margin-left: -15px;
+    }
+    .clock-img{
+        margin-top: -0.5%;
+        width: 15%;
+        margin-left: -15px;
+    }
+    .worktime{
+        font-size: 12px;
+        margin-bottom: 0;
+        margin-left: 4px;
+        margin-top: -1px;
+    }
+    .number-txt{
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 375px){
+    .link-txt{
+        font-size: 11px;
+        
+    }
+    .link-info{
+        gap: 12%;
+        width: 100px;
+    }
+    .header{
+        height: 50px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .logo-txt{
+        font-size: 10px;
+        margin-top: 35%;
+    }
+    .logo-img{
+        margin-left: 60%;
+    }
+    .info{
+        margin-left: 10px;
+    }
+    .phone-img{
+        margin-top: 5%;
+        width: 18%;
+        margin-left: -15px;
+    }
+    .clock-img{
+        margin-top: -0.5%;
+        width: 15%;
+        margin-left: -15px;
+    }
+    .worktime{
+        font-size: 12px;
+        margin-bottom: 0;
+        margin-left: 4px;
+        margin-top: -1px;
+    }
+    .number-txt{
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 320px){
+    .link-txt{
+        font-size: 10px;
+        
+    }
+    .link-info{
+        gap: 12%;
+        width: 100px;
+    }
+    .header{
+        height: 50px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .logo-txt{
+        font-size: 10px;
+        margin-top: 38%;
+    }
+    .logo-img{
+        margin-left: 60%;
+    }
+    .info{
+        margin-left: 10px;
+    }
+    .phone-img{
+        margin-top: 5%;
+        width: 18%;
+        margin-left: -15px;
+    }
+    .clock-img{
+        margin-top: -0.5%;
+        width: 15%;
+        margin-left: -15px;
+    }
+    .worktime{
+        font-size: 10px;
+        margin-bottom: 0;
+        margin-left: 4px;
+        margin-top: -1px;
+    }
+    .number-txt{
+        font-size: 7px;
+    }
+}

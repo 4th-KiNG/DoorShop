@@ -1,0 +1,862 @@
+.MainPage{
+    background-color: black;
+    padding-bottom: 3%;
+}
+
+.door-lb{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-items: center;
+}
+
+.goldDoor-img{
+    width: 55%;
+    margin-top: 6%;
+    margin-left: 30%;
+}
+.star-img{
+    width: 70%;
+    margin-top: 2%;
+}
+
+.door-lb-txt1{
+    color: yellow;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 120px;
+    margin-top: -15px;
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 20px;
+    text-decoration-thickness: 5px;
+    margin-bottom: 0;
+}
+.fur-panel1{
+    display: none;
+}
+
+.door-lb-txt2{
+    color: yellow;
+    font-family: 'Inder', sans-serif;
+    font-size:40px;
+    margin-bottom: 30px;
+    margin-top: -15px;
+    text-align: center;
+}
+.indoor-outdoor{
+    margin-top: 20px;
+}
+.slider{
+    margin: 0;
+}
+.line-y{
+    background-color: yellow;
+    height: 2px;
+}
+.fur-txt{
+    font-size: 90px;
+    color: yellow;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-left: 17%;
+    margin-bottom: 0;
+    opacity: 0;
+}
+
+.panel-div{
+    width: 70%;
+    display: flex;
+    margin-left: 2%;
+}
+
+.panel{
+    width: 4%;
+    position: relative;
+    z-index: 3;
+    margin-left: 0%;
+}
+
+.handles{
+    display: flex;
+    flex-direction: column;
+    gap: 6%;
+    margin-top: 4%;
+}
+
+.handles1{
+    display: flex;
+    flex-direction: column;
+    gap: 5.7%;
+    margin-top: 4%;
+}
+
+.handle{
+    width: 44%;
+    left: -250px;
+    position: relative;
+    z-index: 1;
+    border-radius: 20px;
+}
+
+.floor-and-fur{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 2%;
+}
+
+.floor-txt{
+    font-size: 70px;
+    color: yellow;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-left: 15%;
+    margin-top: 2%;
+    opacity: 0;
+}
+
+.floor-fon{
+    width: 80%;
+    border-radius: 15px;
+    opacity: 0;
+}
+
+.about-us1{
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+}
+
+.about-us{
+    background-color: yellow;
+    width: 90%;
+    border-radius: 20px;
+    text-align: center;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.about-us-txt{
+    opacity: 0;
+    font-family: '20011';
+}
+
+h1.about-us-txt{
+    font-size: 50px;
+    margin-top: 1%;
+}
+
+p.about-us-txt{
+    font-size: 38px;
+}
+
+.line-b{
+    height: 2px;
+    background-color: black;
+}
+
+.card{
+    display: flex;
+    background-color: black;
+    vertical-align: middle;
+    width: 26%;
+    opacity: 0;
+}
+
+.card-img{
+    width: 23%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-txt{
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-family: '20011';
+    font-size: 28px;
+    width: 80%;
+    text-align: center;
+    margin-top: 4%;
+}
+
+.advantages{
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    margin-top: 3%;
+}
+
+.line-w{
+    height: 2px;
+    background-color: white;
+}
+
+.work-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.work-time-txt{
+    opacity: 0;
+    margin-left: 13%;
+    margin-top: 2%;
+}
+
+h1.work-time-txt{
+    color: white;
+    font-family: '20011';
+    text-decoration: underline;
+    text-underline-offset: 15px;
+    font-size: 64px;
+}
+
+p.work-time-txt{
+    color: white;
+    font-family: '20011';
+    font-size: 50px;
+    width: 50%;
+}
+
+.place{
+    opacity: 0;
+    width: 95%;
+    margin-left: -3%;
+}
+
+.work-info{
+    margin-top: 4%;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+@keyframes handle-anim {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(250px);
+    }
+}
+
+.animated {
+  animation-name: fade-in;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.handle-hide{
+    width: 250px;
+    height: 186px;
+    margin-right: -18px;
+    position: relative;
+    z-index: 2;
+    background-color: black;
+}
+
+.animated1{
+    animation-name: handle-anim;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@media (max-width: 2000px){
+    .handle{
+        width: 52%;
+    }
+    .handles1{
+        gap: 6%;
+    }
+    .handles{
+        gap: 9%;
+    }
+    .handle-hide{
+        height: 170px;
+    }
+    .floor-txt{
+        margin-left: 7%;
+    }
+    .fur-txt{
+        margin-left: 18%;
+    }
+    p.about-us-txt{
+        font-size: 30px;
+    }
+    h1.work-time-txt{
+        text-underline-offset: 10px;
+        font-size: 50px;
+    }
+    p.work-time-txt{
+        font-size: 40px;
+    }
+    .work-time-txt{
+        margin-top: 2%;
+    }
+}
+
+@media (max-width: 1500px){
+    .star-img{
+        width: 90%;
+        margin-left: -15%;
+    }
+    p.door-lb-txt1{
+        font-size: 100px;
+    }
+    p.door-lb-txt2{
+        font-size: 36px;
+        margin-top: -5px;
+        margin-bottom: 15px;
+    }
+    .goldDoor-img{
+        margin-left: 45%;
+    }
+    .panel{
+        width: 5%;
+    }
+    .handles{
+        margin-top: 5.5%;
+        gap: 9%;
+    }
+    .handle{
+        width: 85%;
+    }
+    .handle-hide{
+        margin-right: -13px;
+    }
+    .panel-div{
+        margin-left: 0;
+    }
+    .floor-txt{
+        margin-left: 0;
+        font-size: 60px;
+    }
+    .fur-txt{
+        font-size: 64px;
+        margin-left: 28%;
+    }
+    p.about-us-txt{
+        font-size: 28px;
+    }
+    h1.about-us-txt{
+        font-size: 40px;
+    }
+    .card-txt{
+        font-size: 24px;
+    }
+    h1.work-time-txt{
+        text-underline-offset: 10px;
+        font-size: 40px;
+    }
+    p.work-time-txt{
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 1024px){
+    .star-img{
+        width: 90%;
+        margin-left: -15%;
+    }
+    p.door-lb-txt1{
+        font-size: 70px;
+        text-underline-offset: 12px;
+        text-decoration-thickness: 3px;
+    }
+    p.door-lb-txt2{
+        font-size: 24px;
+    }
+    .goldDoor-img{
+        margin-left: 45%;
+    }
+    .panel{
+        width: 40px;
+        height: 600px;
+    }
+    .handles{
+        margin-top: 3%;
+        gap: 8%;
+    }
+    .handles1{
+        gap: 0;
+    }
+    .handle{
+        width: 55%;
+    }
+    .handle-hide{
+        height: 210px;
+        width: 250px;
+        margin-top: -30px;
+    }
+    .panel-div{
+        margin-left:12%;
+    }
+    .floor-txt{
+        text-align: center;
+        margin-left: 0;
+        font-size: 48px;
+    }
+    .floor-fon{
+        margin-left: 10%;
+    }
+    .fur-txt{
+        font-size: 54px;
+        margin-left: 37%;
+    }
+    p.about-us-txt{
+        font-size: 22px;
+    }
+    h1.about-us-txt{
+        font-size: 34px;
+    }
+    .card-txt{
+        font-size: 18px;
+    }
+    h1.work-time-txt{
+        text-underline-offset: 10px;
+        font-size: 32px;
+    }
+    p.work-time-txt{
+        font-size: 24px;
+    }
+    .floor-and-fur{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px){
+    .star-img{
+        width: 90%;
+        margin-left: -15%;
+    }
+    p.door-lb-txt1{
+        font-size: 56px;
+        text-underline-offset: 12px;
+        text-decoration-thickness: 3px;
+    }
+    p.door-lb-txt2{
+        font-size: 20px;
+    }
+    .goldDoor-img{
+        margin-left: 45%;
+    }
+    .panel{
+        width: 40px;
+        height: 400px;
+    }
+    .handles{
+        margin-top: 3%;
+        gap: 8%;
+    }
+    .handles1{
+        gap: 0;
+    }
+    .handle{
+        width: 60%;
+    }
+    .handle-hide{
+        height: 160px;
+        width: 250px;
+        margin-top: -30px;
+    }
+    .panel-div{
+        margin-left:5%;
+    }
+    .floor-txt{
+        text-align: center;
+        margin-left: 0;
+        font-size: 38px;
+    }
+    .floor-fon{
+        margin-left: 15%;
+        width: 70%;
+    }
+    .fur-txt{
+        font-size: 42px;
+        margin-left: 36%;
+    }
+    p.about-us-txt{
+        font-size: 18px;
+    }
+    h1.about-us-txt{
+        font-size: 30px;
+    }
+    .card-txt{
+        font-size: 12px;
+    }
+    h1.work-time-txt{
+        text-underline-offset: 10px;
+        font-size: 26px;
+    }
+    p.work-time-txt{
+        font-size: 16px;
+    }
+    .floor-and-fur{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 425px){
+    .star-img{
+        width: 120%;
+        margin-left: -20%;
+    }
+    p.door-lb-txt1{
+        font-size: 33px;
+        text-underline-offset: 12px;
+        text-decoration-thickness: 3px;
+    }
+    p.door-lb-txt2{
+        font-size: 12px;
+        margin-top: 6px;
+    }
+    .goldDoor-img{
+        margin-left: 30%;
+        width: 80%;
+    }
+    .panel{
+        width: 40px;
+        height: 400px;
+    }
+    .handles{
+        margin-top: 3%;
+        gap: 6.7%;
+        margin-left: 4%;
+    }
+    .handles1{
+        gap: 0;
+    }
+    .handle{
+        top: -100px;
+        left: 0px;
+        width: 28%;
+    }
+    .handle-hide{
+        height: 90px;
+        width: 190px;
+    }
+    .panel-div{
+        margin-left:5%;
+    }
+    .floor-txt{
+        text-align: center;
+        margin-left: -80px;
+        font-size: 28px;
+    }
+    .floor-fon{
+        margin-left: 10%;
+        width: 60%;
+    }
+    .fur-txt{
+        font-size: 32px;
+        left: -10px;
+        position: absolute;
+        z-index: 3;
+    }
+    p.about-us-txt{
+        font-size: 14px;
+    }
+    h1.about-us-txt{
+        font-size: 24px;
+    }
+    .card-txt{
+        font-size: 10px;
+    }
+    h1.work-time-txt{
+        text-underline-offset: 10px;
+        font-size: 20px;
+        margin-top: 8%;
+    }
+    p.work-time-txt{
+        font-size: 12px;
+        margin-bottom: 0;
+    }
+    .floor-and-fur{
+        grid-template-columns: 1fr;
+    }
+    .fur-panel{
+        display: none;
+    }
+    .fur-panel1{
+        display: block;
+        width: 100%;
+    }
+    .panel{
+        width: 380px;
+        height: 20px;
+    }
+    .panel-div{
+        flex-direction: column;
+    }
+    .place{
+        width: 100%;
+        margin-top: 12%;
+        margin-left: -5%;
+    }
+    .handles{
+        flex-direction: row;
+    }
+    .handles1{
+        flex-direction: row;
+    }
+    .animated1{
+        animation-name: handle-anim-mobile;
+    }
+    .advantages{
+        margin-top: 6%;
+        gap: 3%;
+    }
+    .card-img{
+        width: 30%;
+    }
+}
+
+@keyframes handle-anim-mobile {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateY(100px);
+    }
+}
+
+@media (max-width: 375px){
+    .star-img{
+        width: 120%;
+        margin-left: -20%;
+    }
+    p.door-lb-txt1{
+        font-size: 26px;
+        text-underline-offset: 7px;
+        text-decoration-thickness: 2px;
+    }
+    p.door-lb-txt2{
+        font-size: 10px;
+        margin-top: 4px;
+    }
+    .goldDoor-img{
+        margin-left: 30%;
+        width: 80%;
+    }
+    .panel{
+        width: 40px;
+        height: 400px;
+    }
+    .handles{
+        gap: 6%;
+        margin-left: 4%;
+    }
+    .handles1{
+        gap: 0;
+        margin-top: 6%;
+    }
+    .handle{
+        top: -100px;
+        left: 0px;
+        width: 28%;
+    }
+    .handle-hide{
+        height: 80px;
+        width: 170px;
+    }
+    .panel-div{
+        margin-left:5%;
+    }
+    .floor-txt{
+        text-align: center;
+        margin-left: -80px;
+        font-size: 20px;
+    }
+    .floor-fon{
+        margin-left: 10%;
+        width: 60%;
+    }
+    .fur-txt{
+        font-size: 24px;
+        left: -1px;
+        margin-top: 3%;
+        position: absolute;
+        z-index: 3;
+    }
+    p.about-us-txt{
+        font-size: 12px;
+    }
+    h1.about-us-txt{
+        font-size: 18px;
+        margin-top: 5%;
+    }
+    .card-txt{
+        font-size: 10px;
+    }
+    h1.work-time-txt{
+        text-underline-offset: 10px;
+        font-size: 20px;
+        margin-top: 8%;
+    }
+    p.work-time-txt{
+        font-size: 12px;
+        margin-bottom: 0;
+    }
+    .floor-and-fur{
+        grid-template-columns: 1fr;
+    }
+    .fur-panel{
+        display: none;
+    }
+    .fur-panel1{
+        display: block;
+        width: 100%;
+    }
+    .panel{
+        width: 330px;
+        height: 17px;
+    }
+    .panel-div{
+        flex-direction: column;
+    }
+    .place{
+        width: 100%;
+        margin-top: 18%;
+        margin-left: -5%;
+    }
+    .handles{
+        flex-direction: row;
+    }
+    .handles1{
+        flex-direction: row;
+    }
+    .animated1{
+        animation-name: handle-anim-mobile;
+    }
+    .advantages{
+        margin-top: 6%;
+        gap: 3%;
+    }
+    .card-img{
+        width: 30%;
+    }
+}
+
+@media (max-width: 375px){
+    .star-img{
+        width: 120%;
+        margin-left: -20%;
+    }
+    p.door-lb-txt1{
+        font-size: 20px;
+        text-underline-offset: 6px;
+        text-decoration-thickness: 2px;
+    }
+    p.door-lb-txt2{
+        font-size: 8px;
+        margin-top: 4px;
+    }
+    .goldDoor-img{
+        margin-left: 30%;
+        width: 80%;
+    }
+    .panel{
+        width: 40px;
+        height: 400px;
+    }
+    .handles{
+        gap: 6.7%;
+        margin-left: 4%;
+    }
+    .handles1{
+        gap: 0;
+        margin-top: 6%;
+    }
+    .handle{
+        top: -100px;
+        left: 0px;
+        width: 28%;
+        border-radius: 10px;
+    }
+    .handle-hide{
+        height: 80px;
+        width: 145px;
+    }
+    .panel-div{
+        margin-left:5%;
+    }
+    .floor-txt{
+        text-align: center;
+        margin-left: -80px;
+        font-size: 20px;
+    }
+    .floor-fon{
+        margin-left: 10%;
+        width: 60%;
+    }
+    .fur-txt{
+        font-size: 24px;
+        left: -12px;
+        margin-top: 3%;
+        position: absolute;
+        z-index: 3;
+    }
+    p.about-us-txt{
+        font-size: 9px;
+    }
+    h1.about-us-txt{
+        font-size: 14px;
+        margin-top: 5%;
+    }
+    .card-txt{
+        font-size: 8px;
+    }
+    h1.work-time-txt{
+        text-underline-offset: 10px;
+        font-size: 16px;
+        margin-top: 8%;
+    }
+    p.work-time-txt{
+        font-size: 10px;
+        margin-bottom: 0;
+    }
+    .floor-and-fur{
+        grid-template-columns: 1fr;
+    }
+    .fur-panel{
+        display: none;
+    }
+    .fur-panel1{
+        display: block;
+        width: 100%;
+    }
+    .panel{
+        width: 285px;
+        height: 15px;
+    }
+    .panel-div{
+        flex-direction: column;
+    }
+    .place{
+        width: 100%;
+        margin-top: 18%;
+        margin-left: -5%;
+    }
+    .handles{
+        flex-direction: row;
+    }
+    .handles1{
+        flex-direction: row;
+    }
+    .animated1{
+        animation-name: handle-anim-mobile;
+    }
+    .advantages{
+        margin-top: 6%;
+        gap: 3%;
+    }
+    .card-img{
+        width: 30%;
+    }
+}
