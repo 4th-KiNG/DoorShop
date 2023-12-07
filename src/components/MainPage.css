@@ -669,6 +669,7 @@ p.work-time-txt{
         margin-left:5%;
     }
     .floor-txt{
+        opacity: 0;
         text-align: center;
         margin-left: -80px;
         font-size: 20px;
