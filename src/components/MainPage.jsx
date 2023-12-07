@@ -87,7 +87,6 @@ function MainPage() {
           </div>
         </div>
         <div>
-          
           <p className='floor-txt element-to-animate'>Напольное покрытие</p>
           <img src={floorFon} alt="" className='floor-fon element-to-animate'/>
         </div>
