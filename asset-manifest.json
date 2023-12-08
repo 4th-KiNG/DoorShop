@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/DoorShop/static/css/main.09b1b590.css",
+    "main.css": "/DoorShop/static/css/main.ea384ec4.css",
     "main.js": "/DoorShop/static/js/main.e4f703ac.js",
     "static/js/787.36a14d76.chunk.js": "/DoorShop/static/js/787.36a14d76.chunk.js",
     "static/media/fon1.svg": "/DoorShop/static/media/fon1.41ccd9b37858d7a05f6d9062160286d7.svg",
@@ -24,12 +24,12 @@
     "static/media/tool.png": "/DoorShop/static/media/tool.aefcab2a00994bf1687e.png",
     "static/media/line1.png": "/DoorShop/static/media/line1.bb45217a50b9ac7b688c.png",
     "index.html": "/DoorShop/index.html",
-    "main.09b1b590.css.map": "/DoorShop/static/css/main.09b1b590.css.map",
+    "main.ea384ec4.css.map": "/DoorShop/static/css/main.ea384ec4.css.map",
     "main.e4f703ac.js.map": "/DoorShop/static/js/main.e4f703ac.js.map",
     "787.36a14d76.chunk.js.map": "/DoorShop/static/js/787.36a14d76.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.09b1b590.css",
+    "static/css/main.ea384ec4.css",
     "static/js/main.e4f703ac.js"
   ]
 }
