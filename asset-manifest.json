@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/DoorShop/static/css/main.d7e157e2.css",
-    "main.js": "/DoorShop/static/js/main.5a1227f4.js",
+    "main.css": "/DoorShop/static/css/main.05e78811.css",
+    "main.js": "/DoorShop/static/js/main.012661c3.js",
     "static/js/787.36a14d76.chunk.js": "/DoorShop/static/js/787.36a14d76.chunk.js",
     "static/media/fon1.svg": "/DoorShop/static/media/fon1.41ccd9b37858d7a05f6d9062160286d7.svg",
     "static/media/door-ico.png": "/DoorShop/static/media/door-ico.659a5d2dbab7cc408136.png",
@@ -24,12 +24,12 @@
     "static/media/tool.png": "/DoorShop/static/media/tool.aefcab2a00994bf1687e.png",
     "static/media/line1.png": "/DoorShop/static/media/line1.bb45217a50b9ac7b688c.png",
     "index.html": "/DoorShop/index.html",
-    "main.d7e157e2.css.map": "/DoorShop/static/css/main.d7e157e2.css.map",
-    "main.5a1227f4.js.map": "/DoorShop/static/js/main.5a1227f4.js.map",
+    "main.05e78811.css.map": "/DoorShop/static/css/main.05e78811.css.map",
+    "main.012661c3.js.map": "/DoorShop/static/js/main.012661c3.js.map",
     "787.36a14d76.chunk.js.map": "/DoorShop/static/js/787.36a14d76.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d7e157e2.css",
-    "static/js/main.5a1227f4.js"
+    "static/css/main.05e78811.css",
+    "static/js/main.012661c3.js"
   ]
 }
