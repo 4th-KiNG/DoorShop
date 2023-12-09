@@ -21,6 +21,10 @@ import place from './place.svg'
 import email from './email.png'
 import doorIco from './door-ico.png'
 import avito from './avito.png'
+import doorCard from './doorCard.jpg'
+import doorCard1 from './doorCard1.jpg'
+import doorCard2 from './doorCard2.png'
+import doorCard3 from './doorCard3.png'
 
 export{
     door,
@@ -45,5 +49,9 @@ export{
     doorIco,
     avito,
     fon6,
-    line1
+    line1,
+    doorCard,
+    doorCard1,
+    doorCard2,
+    doorCard3
 }

@@ -1,5 +1,5 @@
 import './MainPage.css';
-import { star, goldDoor, line, line1, handle1, handle2, handle3, floorFon, pencil, car, tool, place } from '../assets';
+import { star, goldDoor, doorCard, doorCard1, doorCard2,doorCard3, line, line1, handle1, handle2, handle3, floorFon, pencil, car, tool, place } from '../assets';
 import Slider from './Slider';
 import Slider1 from './Slider1';
 
@@ -53,45 +53,38 @@ function MainPage() {
         <Slider></Slider>
       </div>
       <hr className='line-y'/>
-      <div className='floor-and-fur'>
-        <div className='fur-panel'>
-          <p className='fur-txt element-to-animate'>Фурнитура</p>
-          <div className='panel-div'>
-            <div className='handles1'>
-              <div className='handle-hide'></div>
-              <div className='handle-hide'></div>
-              <div className='handle-hide'></div>
-            </div>
-            <img src={line} alt="" className='panel' />
-            <div className='handles'>
-              <img src={handle1} alt="" className='handle handle-animate' />
-              <img src={handle2} alt="" className='handle handle-animate' />
-              <img src={handle3} alt="" className='handle handle-animate' />
-            </div>
+      <div className='cards'>
+        <div className='door-card'>
+          <div className='doorcard-txt'>
+            <p className='card-txt-p'>Двери входные</p>
+            <a className='card-txt-a' href="">Открыть в каталоге</a>
           </div>
+            <img src={doorCard} alt="" className='door-img' />
         </div>
-        <div className='fur-panel1'>
-          <p className='fur-txt element-to-animate'>Фурнитура</p>
-          <div className='panel-div'>
-            <div className='handles1'>
-              <div className='handle-hide'></div>
-              <div className='handle-hide'></div>
-              <div className='handle-hide'></div>
-            </div>
-            <img src={line1} alt="" className='panel' />
-            <div className='handles'>
-              <img src={handle1} alt="" className='handle handle-animate' />
-              <img src={handle2} alt="" className='handle handle-animate' />
-              <img src={handle3} alt="" className='handle handle-animate' />
-            </div>
+        <div className='door-card'>
+          <div className='doorcard-txt'>
+            <p className='card-txt-p1'>Двери межкомнатные</p>
+            <a className='card-txt-a' href="">Открыть в каталоге</a>
           </div>
-        </div>
-        <div>
-          <p className='floor-txt element-to-animate'>Напольное покрытие</p>
-          <img src={floorFon} alt="" className='floor-fon element-to-animate'/>
+            <img src={doorCard1} alt="" className='door-img' />
         </div>
       </div>
-      
+        <div className='cards'>
+        <div className='door-card'>
+        <div className='doorcard-txt'>
+            <p className='card-txt-p'>Фурнитура</p>
+            <a className='card-txt-a' href="">Открыть в каталоге</a>
+          </div>
+            <img src={doorCard2} alt="" className='door-img1'  />
+        </div>
+        <div className='door-card'>
+        <div className='doorcard-txt'>
+            <p className='card-txt-p1'>Напольное покрытие</p>
+            <a className='card-txt-a' href="">Открыть в каталоге</a>
+          </div>
+            <img src={doorCard3} alt="" className='door-img2' />
+        </div>
+      </div>
       <hr className='line-y'/>
       <div className='about-us1'>
         <div className='about-us' id='1'>

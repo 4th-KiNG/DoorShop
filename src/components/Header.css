@@ -8,7 +8,7 @@
 .header{
     display: grid;
     grid-template-columns: 1fr 3fr 1fr 2fr;
-    background-color: #EEFF29;
+    background-color:  #f9ec57;
     height: 140px;
     align-items: center;
 }
@@ -43,6 +43,7 @@
     text-decoration: none;
     color: black;
     font-size: 30px;
+    width: 120px;
 }
 
 .info{
@@ -208,7 +209,7 @@ a:hover{
     }
 }
 
-@media (max-width: 425px){
+@media (max-width: 550px){
     .link-txt{
         font-size: 12px;
         
@@ -252,7 +253,7 @@ a:hover{
     }
 }
 
-@media (max-width: 375px){
+@media (max-width: 400px){
     .link-txt{
         font-size: 11px;
         

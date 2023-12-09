@@ -1,21 +1,22 @@
 .footer{
-    display: flex;
-    background-color: yellow;
+    display: grid;
+    grid-template-columns: 4fr 1fr 4fr;
+    background-color:  #f9ec57;
     justify-content: center;
     vertical-align: middle;
 }
 
 .avito{
     display: flex;
-    
-    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
 }
 
 .avito-img{
     width: 15%;
-    height: 80%;
-    margin-left: 24%;
-    margin-top: 2%;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .avito-txt{
@@ -23,34 +24,37 @@
     color: black;
     font-family: '20011';
     font-size: 32px;
+    margin-top: auto;
+    margin-bottom: auto;
     align-items: center;
-    margin-top: 5.5%;
-    margin-left: 2%;
 }
 
 .logotype-img{
-    width: 20%;
-    margin-left:28%;
+    width: 70%;
 }
 
 .email{
     display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 
 .email-img{
-    width: 13%;
-    height: 60%;
-    margin-top: 4%;
+    width: 10%;
+    height: 55%;
 }
 
 .email-txt{
     text-decoration: none;
     color: black;
+    margin: 0;
+    margin-top: auto;
+    margin-bottom: auto;
     font-family: '20011';
     font-size: 32px;
-    margin-top: 6%;
-    margin-left: 4%;
 }
 
 @media (max-width: 1300px){
@@ -63,9 +67,6 @@
     .email-txt{
         font-size: 24px;
     }
-    .email{
-        margin-left: -50px;
-    }
     .avito-txt{
         font-size: 26px;
     }
@@ -74,51 +75,24 @@
 @media (max-width: 768px){
     .email-txt{
         font-size: 18px;
-        margin-right: 5%;
-    }
-    .email-img{
-        width: 19%;
-    }
-    .email{
-        margin-right: 2%;
     }
     .avito-txt{
         font-size: 22px;
     }
-    .logotype-img{
-        margin-left: 25%;
+    .email{
+        gap: 10px;
     }
 }
 
-@media (max-width: 425px){
+@media (max-width: 440px){
     .email-txt{
         font-size: 12px;
-    }
-    .email-img{
-        width: 19%;
-        margin-left: -30px;
-    }
-    .email{
-        margin-right: 4%;
-        margin-top: 1%;
     }
     .avito-txt{
         font-size: 16px;
-        width: 140px;
-        margin-top: 3%;
-
     }
-    .avito{
-        margin-top: 1%;
-        margin-left: -2%;
-    }
-    .avito-img{
-        width: 30px;
-        height: 30px;
-    }
-    .logotype-img{
-        margin-left: 19%;
-        margin-top: 2%;
+    .email{
+        gap: 5px;
     }
 }
 
@@ -126,65 +100,22 @@
     .email-txt{
         font-size: 12px;
     }
-    .email-img{
-        width: 23%;
-        margin-left: -35px;
+    .avito-txt{
+        font-size: 12px;
     }
     .email{
-        margin-right: 4%;
-        margin-top: 1%;
-    }
-    .avito-txt{
-        font-size: 14px;
-        width: 140px;
-        margin-top: 4%;
-
-    }
-    .avito{
-        margin-top: 1%;
-        margin-left: -7%;
-    }
-    .avito-img{
-        width: 30px;
-        height: 30px;
-    }
-    .logotype-img{
-        margin-left: 13%;
-        margin-top: 2%;
+        gap: 5px;
     }
 }
 
-@media (max-width: 375px){
+@media (max-width: 320px){
     .email-txt{
         font-size: 10px;
-        margin-top: 10px;
-    }
-    .email-img{
-        width: 26%;
-        margin-left: -35px;
-        margin-top: 5px;
-    }
-    .email{
-        margin-right: 4%;
-        margin-top: 1%;
     }
     .avito-txt{
-        font-size: 14px;
-        width: 140px;
-        margin-top: 4%;
-
+        font-size: 12px;
     }
-    .avito{
-        margin-top: 1%;
-        margin-left: -10%;
-    }
-    .avito-img{
-        width: 30px;
-        height: 30px;
-    }
-    .logotype-img{
-        margin-left: 1%;
-        margin-top: 2%;
-        width: 30%;
+    .email{
+        gap: 5px;
     }
 }
