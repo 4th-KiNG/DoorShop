@@ -212,10 +212,10 @@ a:hover{
 @media (max-width: 550px){
     .link-txt{
         font-size: 12px;
-        
+        width: 38px;
     }
     .link-info{
-        gap: 12%;
+        gap: 7px;
         width: 100px;
     }
     .header{
@@ -259,7 +259,7 @@ a:hover{
         
     }
     .link-info{
-        gap: 12%;
+        gap: 5px;
         width: 100px;
     }
     .header{
@@ -303,7 +303,7 @@ a:hover{
         
     }
     .link-info{
-        gap: 12%;
+        gap: 5px;
         width: 100px;
     }
     .header{

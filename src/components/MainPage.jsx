@@ -45,7 +45,7 @@ function MainPage() {
         <img src={goldDoor} alt="" className='goldDoor-img animated element-to-animate' />
         <div className='indoor-outdoor animated element-to-animate'>
             <p className='door-lb-txt1'>ДВЕРИ</p>
-            <p className='door-lb-txt2'>ВХОДНЫЕ И МЕЖКОМНАТНЫЕ</p>
+            <p className='door-lb-txt2'>ПО ДОСТУПНЫМ ЦЕНАМ</p>
         </div>
         <img src={star} alt="" className='star-img animated element-to-animate' />
       </div>
