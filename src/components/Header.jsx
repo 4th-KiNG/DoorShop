@@ -1,5 +1,7 @@
 import './Header.css';
 import { door, phone, clock } from '../assets'
+import { Link } from 'react-router-dom';
+
 
 function Header() {
   return (
@@ -11,8 +13,8 @@ function Header() {
       <div>
       </div>
       <div className='link-info'>
-        <a href='#1' className='link-txt'>О нас</a>
-        <a href='' className='link-txt'>Каталог</a>
+        <Link to="/" className='link-txt'>На главную</Link>
+        <Link to="/Catalog" className='link-txt'>Каталог</Link>
       </div>
       <div className='info'>
         <div className='phone'>

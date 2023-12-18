@@ -42,8 +42,9 @@
 .link-txt{
     text-decoration: none;
     color: black;
-    font-size: 30px;
-    width: 120px;
+    font-size: 28px;
+    width: 140px;
+    white-space: nowrap;
 }
 
 .info{
@@ -212,11 +213,11 @@ a:hover{
 @media (max-width: 550px){
     .link-txt{
         font-size: 12px;
-        width: 38px;
     }
     .link-info{
         gap: 7px;
         width: 100px;
+        margin-left: -12px;
     }
     .header{
         height: 50px;

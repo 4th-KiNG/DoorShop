@@ -1,0 +1,109 @@
+.img-of-fur{
+    width: 200px;
+    height: 200px;
+    margin: 0;
+}
+.doorlist{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 30px;
+}
+
+.element-fur{
+    width: 200px;
+    height: 230px;
+    transition: transform 0.3s ease-in-out;
+    background-color: #f9ec57;
+    display: flex;
+    border-radius: 0 0 15px 15px;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+}
+.cost1{
+    font-family: '20011';
+    font-size: 24px;
+    margin: 0;
+    text-align: center;
+}
+
+@keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+.animated2{
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}  
+
+@media (max-width: 800px){
+    .img-of-fur{
+        width: 150px;
+        height: 150px;
+    }
+    .element-fur{
+        width: 150px;
+        height: 170px;
+        border-radius: 0 0 8px 8px;
+    }
+    .cost1{
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 550px){
+    .img-of-fur{
+        width: 120px;
+        height: 120px;
+    }
+    .element-fur{
+        width: 120px;
+        height: 140px;
+    }
+    .cost1{
+        font-size: 16px;
+    }
+    .doorlist{
+        gap: 30px;
+    }
+}
+@media (max-width: 425px){
+    .img-of-fur{
+        width: 100px;
+        height: 100px;
+    }
+    .element-fur{
+        width: 100px;
+        height: 120px;
+        border-radius: 0 0 8px 8px;
+    }
+    .cost1{
+        font-size: 14px;
+    }
+}
+@media (max-width: 350px){
+    .img-of-fur{
+        width: 70px;
+        height: 70px;
+    }
+    .element-fur{
+        width: 70px;
+        height: 85px;
+        border-radius: 0 0 4px 4px;
+    }
+    .cost1{
+        font-size: 12px;
+    }
+    .doorlist{
+        gap: 20px;
+    }
+}

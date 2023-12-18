@@ -1,0 +1,106 @@
+.img-of-door{
+    width: 200px;
+    height: 415px;
+    margin: 0;
+}
+.doorlist{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 30px;
+}
+
+.element{
+    width: 200px;
+    height: 450px;
+    transition: transform 0.3s ease-in-out;
+    background-color: #f9ec57;
+    display: flex;
+    border-radius: 0 0 15px 15px;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+}
+.cost{
+    font-family: '20011';
+    font-size: 24px;
+    margin: 0;
+    text-align: center;
+}
+
+@keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+.animated2{
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}  
+
+@media (max-width: 800px){
+    .img-of-door{
+        width: 150px;
+        height: 350px;
+    }
+    .element{
+        width: 150px;
+        height: 380px;
+    }
+
+}
+
+@media (max-width: 550px){
+    .img-of-door{
+        width: 100px;
+        height: 220px;
+    }
+    .element{
+        width: 100px;
+        height: 250px;
+    }
+    .cost{
+        font-size: 20px;
+    }
+    .doorlist{
+        gap: 30px;
+    }
+}
+@media (max-width: 425px){
+    .img-of-door{
+        width: 80px;
+        height: 180px;
+    }
+    .element{
+        width: 80px;
+        height: 200px;
+        border-radius: 0 0 8px 8px;
+    }
+    .cost{
+        font-size: 16px;
+    }
+}
+@media (max-width: 350px){
+    .img-of-door{
+        width: 60px;
+        height: 140px;
+    }
+    .element{
+        width: 60px;
+        height: 155px;
+        border-radius: 0 0 8px 8px;
+    }
+    .cost{
+        font-size: 12px;
+    }
+    .doorlist{
+        gap: 20px;
+    }
+}
