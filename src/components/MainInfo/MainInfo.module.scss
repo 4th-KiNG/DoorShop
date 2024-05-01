@@ -38,21 +38,20 @@
     flex-direction: column;
     align-items: center;
     gap: 18px;
+    height: 470px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 40px;
-    padding-bottom: 60px;
     @media (max-width:900px) {
         padding-top: 20px;
         max-width: 500px;
-        
+        height: 380px;
     }
     @media (max-width: 650px) {
-        padding-bottom: 30px;
     }
     @media (max-width:550px) {
+        height: 300px;
         gap: 14px;
-        padding-bottom: 40px;
     }
     &_Title{
         font-size: 48px;
