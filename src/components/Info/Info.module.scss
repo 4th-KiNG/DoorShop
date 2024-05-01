@@ -1,0 +1,141 @@
+.InfoPage{
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    border-top: 2px black solid;
+    border-bottom: 2px black solid;
+    padding: 60px 20px;
+    @media (max-width: 900px) {
+        padding: 40px 15px;
+    }
+    @media (max-width: 550px) {
+        gap: 30px;
+        padding: 20px 15px;
+    }
+}
+
+.Cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: space-evenly;
+    &_Card{
+        width: 210px;
+        height: 160px;
+        box-shadow: 0 0 14px rgba(0,0,0,0.5);
+        transition: 200ms all;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 8px;
+        justify-content: center;
+        gap: 20px;
+        cursor: pointer;
+        text-align: center;
+        @media (max-width: 750px) {
+            width: 180px;
+            height: 120px;
+        }
+        @media (max-width:500px) {
+            width: 150px;
+            height: 100px;
+            gap: 12px;
+            border-radius: 6px;
+        }
+        &_Ico{
+            @media (max-width: 750px) {
+                width: 40px;
+                height: 40px;
+            }
+            @media (max-width: 500px) {
+                width: 30px;
+            }
+        }
+        &>p{
+            font-size: 18px;
+            @media (max-width: 750px) {
+                font-size: 15px;
+            }
+            @media (max-width:500px) {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+.Info{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    @media (max-width: 650px) {
+        gap: 10px;
+    }
+    @media (max-width: 550px) {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    &_Txt{
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+        @media (max-width: 900px) {
+            gap: 40px;
+        }
+        @media (max-width: 650px) {
+            gap: 30px;
+        }
+        @media (max-width: 550px) {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 15px;
+        }
+        &_Main{
+            display: flex;flex-direction: column;
+            gap: 24px;
+            max-width: 300px;
+            @media (max-width: 650px) {
+                gap: 16px;
+            }
+            &>h1{
+                font-size: 36px;
+                @media (max-width: 900px) {
+                    font-size: 28px;
+                }
+                @media (max-width: 650px) {
+                    font-size: 20px;
+                }
+                @media (max-width: 450px) {
+                    font-size: 18px;
+                }
+            }
+            &>p{
+                font-size: 24px;
+                @media (max-width: 900px) {
+                    font-size: 18px;
+                }
+                @media (max-width: 650px) {
+                    font-size: 15px;
+                }
+                @media (max-width: 450px) {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    &_Map{
+        &_Google{
+            width: 100%;
+            height: 100%;
+        }
+        
+    }
+}
+
+@media (hover:hover) {
+    .Cards_Card:hover{
+        box-shadow: 0 0 24px rgba(0,0,0,0.5);
+    }
+}
