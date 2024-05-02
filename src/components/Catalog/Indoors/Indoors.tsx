@@ -432,7 +432,7 @@ const Indoors = () => {
                 <p>{currnum}/{Math.ceil(indoors.length / 10)}</p>
                 <Image src={leftrightarrow} width={20} height={20} onClick={GoRight} style={{transform: "rotate(-90deg)"}} alt='arrow'></Image>
             </div>
-            <div style={{display: "none"}}>
+            <div className={styles.HiddenDoors}>
                 {indoors.slice(listSlice + 10, listSlice + 20).map((card: CardProps) => {
                     return(
                         <Card {...card}></Card>

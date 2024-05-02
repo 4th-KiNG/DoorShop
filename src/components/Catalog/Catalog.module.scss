@@ -1,6 +1,7 @@
 .CatalogPage{
     max-width: 1440px;
     margin-left: auto;
+    overflow: hidden;
     margin-right: auto;
     padding: 0 20px;
     display: flex;
@@ -86,4 +87,14 @@
     flex-direction: column;
     border: 1px #999999 solid;
     padding: 20px;
+}
+
+.HiddenDoors{
+    height: 100vh;
+    position: absolute;
+    top: -1000000px;
+    left: -1000000px;
+    display: flex;
+    width: 100vw;
+    visibility: hidden;
 }
