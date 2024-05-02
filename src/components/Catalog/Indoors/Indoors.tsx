@@ -414,14 +414,8 @@ const Indoors = () => {
             </div>
         )
     }
-    const imageRange = Array.from({ length: 377 }, (_, index) => `@/catalog/indoor/${index + 1}.jpeg`);
     return (
         <div className={styles.CatalogPage}>
-            <Head>
-            {imageRange.map((imageSrc) => (
-                <link key={imageSrc} rel="preload" href={imageSrc} as="image" />
-            ))}
-            </Head>
             <div className={styles.CatalogHeader}>
                 <Link href="/catalog" className={styles.CatalogHeader_Link}>Каталог</Link>
                 <Image src={arrow} width={12} height={12} alt='arrow' style={{transform: "rotate(90deg)"}} ></Image>
@@ -438,13 +432,6 @@ const Indoors = () => {
                 <Image src={leftrightarrow} width={20} height={20} onClick={GoLeft} style={{transform: "rotate(90deg)", fill: "#999999"}} alt='arrow'></Image>
                 <p>{currnum}/{Math.ceil(indoors.length / 10)}</p>
                 <Image src={leftrightarrow} width={20} height={20} onClick={GoRight} style={{transform: "rotate(-90deg)"}} alt='arrow'></Image>
-            </div>
-            <div className={styles.HiddenDoors}>
-                {indoors.slice(listSlice + 10, listSlice + 20).map((card: CardProps) => {
-                    return(
-                        <Card {...card}></Card>
-                    )
-                })}
             </div>
         </div>
     );
