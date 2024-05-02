@@ -11,7 +11,10 @@ import car from './car.svg'
 import repare from './repare.svg'
 import avito from './avito.svg'
 import doorico from './doorico.svg'
+import arrow from './arrow.svg'
+import leftrightarrow from './leftrightarrow.svg'
 export{
+    arrow,
     logo,
     mail,
     location,
@@ -24,5 +27,5 @@ export{
     car,
     repare,
     avito,
-    doorico
+    doorico,leftrightarrow
 }

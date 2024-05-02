@@ -91,3 +91,23 @@
     }
     
 }
+
+.SendBtn{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    &_Success{
+        color: rgb(0, 212, 0);
+        font-size: 18px;
+        @media (max-width: 600px) {
+            font-size: 15px;
+        }
+    }
+    &_UnSuccess{
+        color: rgb(255, 52, 52);
+        font-size: 18px;
+        @media (max-width: 600px) {
+            font-size: 15px;
+        }
+    }
+}

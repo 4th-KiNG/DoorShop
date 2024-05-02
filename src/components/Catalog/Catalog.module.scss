@@ -1,0 +1,89 @@
+.CatalogPage{
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: hidden;
+    margin-bottom: 20px;
+    min-height: calc(100vh - 200px);
+    @media (max-width: 600px) {
+        padding: 0 10px;
+    }
+}
+
+.CatalogHeader{
+    margin-top: 10px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    &_Link{
+        text-decoration: none;
+        color: black;
+    }
+}
+
+.Categories{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    @media (max-width: 600px) {
+        gap: 10px;
+        margin-top: 15px;
+    }
+    &_Category{
+        transition: 200ms all;
+        font-size: 32px;
+        padding: 20px;
+        border: 1px #999999 solid;
+        border-radius: 15px;
+        text-decoration: none;
+        @media (max-width: 1000px) {
+            font-size: 24px;
+            padding: 15px;
+        }
+        @media (max-width: 600px) {
+            font-size: 18px;
+            padding: 15px;
+            border-radius: 10px;
+        }
+    }
+    
+    &_Link{
+        text-decoration: none;
+        color: black;
+    }
+}
+
+@media (hover:hover) {
+    .Categories_Category:hover{
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+}
+
+.Cards{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    &_Arrows{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.CardIndoor{
+    width: 200px;
+    display: flex;
+    gap: 15px;
+    font-size: 18px;
+    align-items: center;
+    flex-direction: column;
+    border: 1px #999999 solid;
+    padding: 20px;
+}

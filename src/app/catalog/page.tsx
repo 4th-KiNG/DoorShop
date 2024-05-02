@@ -1,13 +1,16 @@
 import Header from "@/components/Header/Header";
 import '../globals.css'
 import '../../../public/fonts/lato.css'
-const Catalog = () => {
+import Catalog from "@/components/Catalog/Catalog";
+import Footer from "@/components/Footer/Footer";
+const CatalogPage = () => {
     return (
         <div>
             <Header></Header>
-            Catalog
+            <Catalog></Catalog>
+            <Footer></Footer>
         </div>
     );
 }
  
-export default Catalog;
+export default CatalogPage;
