@@ -13,7 +13,9 @@ import avito from './avito.svg'
 import doorico from './doorico.svg'
 import arrow from './arrow.svg'
 import leftrightarrow from './leftrightarrow.svg'
+import cross from './cross.svg'
 export{
+    cross,
     arrow,
     logo,
     mail,
