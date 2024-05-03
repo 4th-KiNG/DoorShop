@@ -6,6 +6,7 @@ import {useState, useRef, useEffect} from 'react'
 import { arrow, cross } from '@/assets';
 import classNames from 'classnames';
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from "react";
 import { lo1, lo2, lo3,lo4,lo5,lo6,lo7,lo8 } from '@/catalog';
 import { l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13,l14,l15,l16,l17,l18,l19,l20,l21,l22,l23,l24,l25,l26,l27,l28,l29,l30,l31,l32,l33,l34,l35,l36,l37,l38,l39,l40,l41,l42,l43,l44,l45,l46,l47,l48,l49,l50,l51,l52,l53,l54,l55,l56,l57,l58,l59,l60,l61,l62,l63,l64,l65,l66,l67,l68,l69,l70,l71,l72,l73,l74,l75,l76 } from '@/catalog';
 import { h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11, h12, h13, h14, h15, h16, h17, h18, h19, h20, h21, h22, h23, h24, h25, h26, h27, 
@@ -614,6 +615,7 @@ const Furniture = () => {
     }
     return (
         <div className={styles.CatalogPage}>
+            <Suspense>
             <div className={styles.CatalogHeader}>
                 <Link href="/#catalog" className={styles.CatalogHeader_Link}>Каталог</Link>
                 <Image src={arrow} width={12} height={12} alt='arrow' style={{transform: "rotate(90deg)"}} ></Image>
@@ -665,6 +667,7 @@ const Furniture = () => {
                     <Image src={cross} className={styles.OpenImage_Cross} width={50} height={50} onClick={() => OpenImage(img)} alt=''></Image>
                 </div>
             </div>
+            </Suspense>
         </div>
     );
 }
