@@ -618,26 +618,26 @@ const Furniture = () => {
             <div className={styles.CatalogHeader}>
                 <Link href="/#catalog" className={styles.CatalogHeader_Link}>Каталог</Link>
                 <Image src={arrow} width={12} height={12} alt='arrow' style={{transform: "rotate(90deg)"}} ></Image>
-                <Link href="/catalog/indoors" className={styles.CatalogHeader_Link}>Дверная фурнитура</Link>
+                <Link href="/catalog/furniture" className={styles.CatalogHeader_Link}>Фурнитура</Link>
                 {filter == "handles" && 
                 <>
                     <Image src={arrow} width={12} height={12} alt='arrow' style={{transform: "rotate(90deg)"}} ></Image>
-                    <Link href="/catalog/indoors" className={styles.CatalogHeader_Link}>Дверные ручки</Link>
+                    <Link href="/catalog/furniture?filter=handle" className={styles.CatalogHeader_Link}>Ручки</Link>
                 </>}
                 {filter == "locks" && 
                 <>
                     <Image src={arrow} width={12} height={12} alt='arrow' style={{transform: "rotate(90deg)"}} ></Image>
-                    <Link href="/catalog/indoors" className={styles.CatalogHeader_Link}>Дверные замки</Link>
+                    <Link href="/catalog/furniture?filter=locks" className={styles.CatalogHeader_Link}>Замки</Link>
                 </>}
                 {filter == "loops" && 
                 <>
                     <Image src={arrow} width={12} height={12} alt='arrow' style={{transform: "rotate(90deg)"}} ></Image>
-                    <Link href="/catalog/indoors" className={styles.CatalogHeader_Link}>Дверные петли</Link>
+                    <Link href="/catalog/furniture?filter=loops" className={styles.CatalogHeader_Link}>Петли</Link>
                 </>}
                 {filter == "other" && 
                 <>
                     <Image src={arrow} width={12} height={12} alt='arrow' style={{transform: "rotate(90deg)"}} ></Image>
-                    <Link href="/catalog/indoors" className={styles.CatalogHeader_Link}>Другое</Link>
+                    <Link href="/catalog/furniture?filter=other" className={styles.CatalogHeader_Link}>Другое</Link>
                 </>}
                 <div style={{marginLeft: "auto"}}>
                     <button className={styles.FiltersBtn} onClick={FiltersOpen}>Фильтры</button>

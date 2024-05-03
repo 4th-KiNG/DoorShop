@@ -20,9 +20,14 @@
     display: flex;
     gap: 5px;
     align-items: center;
+    
     &_Link{
         text-decoration: none;
         color: black;
+        font-size: 16px;
+        @media (max-width:500px) {
+            font-size: 14px;
+        }
     }
 }
 .FiltersBtn{
@@ -33,6 +38,10 @@
     outline: 0px;
     font-size: 15px;
     background-color: black;
+    @media (max-width: 500px) {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
 }
 
 .Filters{
@@ -48,6 +57,9 @@
     transition: 200ms all;
     margin-top: 10px;
     flex-direction: column;
+    @media (max-width:500px) {
+        margin-left: -110px;
+    }
     &_Btn{
         text-decoration: none;
         margin-right: 20px;
@@ -58,6 +70,9 @@
         padding: 10px;
         border-radius: 6px;
         font-size: 15px;
+        @media (max-width:500px) {
+            font-size: 14px;
+        }
         &_Select{
             color: white;
             background-color: black;
