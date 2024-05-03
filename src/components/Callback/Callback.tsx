@@ -55,19 +55,22 @@ const Callback = () => {
     }
     return (
         <div className={styles.Callback} id='callback'>
-            <h1 className={styles.Callback_Title}>Свяжитесь с нами</h1>
-            <form ref={form} className={styles.Callback_Form} onSubmit={sendEmail}>
-                <input type="text" id='name-input' onChange={handleName} value={name} placeholder='ФИО' name='username' className={styles.Callback_Input} />
-                <input type="phone" id='phone-input' onChange={handlePhone} value={phone} placeholder='Телефон' name='userphone' className={styles.Callback_Input} />
-                <div className={styles.Callback_Form_Description}>
-                    <p>Сообщение</p>
-                    <textarea name="message" onChange={handleArea} value={area} className={styles.Callback_Form_Description_Area} style={{width: "100%"}} id="area"></textarea>
+            <div className={styles.FormContainer}>
+                
+                <form ref={form} className={styles.Callback_Form} onSubmit={sendEmail}>
+                    <h1 className={styles.Callback_Title}>Свяжитесь с нами</h1>
+                    <input type="text" id='name-input' onChange={handleName} value={name} placeholder='Имя' name='username' className={styles.Callback_Input} />
+                    <input type="phone" id='phone-input' onChange={handlePhone} value={phone} placeholder='Телефон' name='userphone' className={styles.Callback_Input} />
+                    <div className={styles.Callback_Form_Description}>
+                        <p>Сообщение</p>
+                        <textarea name="message" onChange={handleArea} value={area} className={styles.Callback_Form_Description_Area} style={{width: "100%"}} id="area"></textarea>
+                    </div>
+                    <div className={styles.SendBtn}>
+                        <input className={styles.Callback_Form_Send} type='submit' value="Отправить"/>
+                        {sendSuccess && <SendText></SendText>}
+                    </div>
+                </form>
                 </div>
-                <div className={styles.SendBtn}>
-                    <input className={styles.Callback_Form_Send} type='submit' value="Отправить"/>
-                    {sendSuccess && <SendText></SendText>}
-                </div>
-            </form>
         </div>
     );
 }

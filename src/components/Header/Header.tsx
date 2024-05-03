@@ -1,5 +1,5 @@
 'use client'
-import { location, logo, mail } from '@/assets';
+import { location, logo, mail, phone } from '@/assets';
 import styles from './Header.module.scss'
 import Image from 'next/image';
 import classNames from 'classnames';
@@ -36,8 +36,8 @@ const Header = () => {
             </Link>
             <div className={styles.MainInfo}>
                 <div className={classNames(styles.MainInfo_Block, styles.Mail)}>
-                    <Image className={styles.MainInfo_Block_Ico} src={mail} width={30} height={22} alt='mail'></Image>
-                    <p className={styles.MainInfo_Block_Txt}>dverivariant2@yandex.ru</p>
+                    <Image className={styles.MainInfo_Block_Ico} src={phone} width={30} height={30} alt='mail'></Image>
+                    <p className={styles.MainInfo_Block_Txt}>8 953 105 37 67</p>
                 </div>
                 <div className={classNames(styles.MainInfo_Block, styles.Location)}>
                     <Image className={styles.MainInfo_Block_Ico} src={location} width={24} height={34} alt='location'></Image>

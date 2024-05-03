@@ -78,13 +78,16 @@
 }
 
 .Mail{
-    @media (max-width: 900px) {
+    @media (max-width:625px) {
+        font-size: 14px;
+    }
+    @media (max-width: 500px) {
         display: none;
     }
 }
 
 .Location{
-    @media (max-width: 625px) {
+    @media (max-width: 900px) {
         display: none;
     }
 }

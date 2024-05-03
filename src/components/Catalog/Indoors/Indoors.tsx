@@ -17,6 +17,7 @@ const Indoors = () => {
     const [listSlice, setListSlice] = useState(0)
     const [currnum, setCurrnum] = useState(1)
     const [img, setImg] = useState(d1)
+    const [showimg, setShowimg] = useState(false)
     const GoRight = () => {
         if (currnum < Math.ceil(indoors.length / 12)){
             setCurrnum(currnum + 1)
@@ -410,8 +411,7 @@ const Indoors = () => {
     }
     const OpenImage = (ig: StaticImageData) => {
         setImg(ig)
-        document.querySelector("body")?.classList.toggle(styles.noscroll)
-        document.getElementsByClassName(styles.OpenImage)[0].classList.toggle(styles.Open)
+        setShowimg(!showimg)
     }
     const Card = (props: CardProps) => {
         return(
@@ -422,6 +422,7 @@ const Indoors = () => {
         )
     }
     return (
+        <>
         <div className={styles.CatalogPage}>
             <div className={styles.CatalogHeader}>
                 <Link href="/#catalog" className={styles.CatalogHeader_Link}>Каталог</Link>
@@ -436,15 +437,18 @@ const Indoors = () => {
                 })}
             </div>
             <div className={styles.Cards_Arrows}>
-                <button onClick={GoRight} className={styles.MoreBtn}>Посмотреть ещё</button>
+            {currnum < Math.ceil(indoors.length / 12) && <button onClick={GoRight} className={styles.MoreBtn}>Посмотреть ещё</button>}
             </div>
-            <div className={styles.OpenImage} onClick={handleClick}>
-                <div style={{display: "flex"}}>
-                    <Image className={styles.OpenImage_Img} src={img} ref={ref} alt=''></Image>
-                    <Image src={cross} className={styles.OpenImage_Cross} width={50} height={50} onClick={() => OpenImage(img)} alt=''></Image>
-                </div>
-            </div>
+            
         </div>
+        {showimg && 
+        <div className={styles.OpenImage} onClick={handleClick}>
+            <div style={{display: "flex"}}>
+                <Image className={styles.OpenImage_Img} src={img} ref={ref} alt=''></Image>
+                <Image src={cross} className={styles.OpenImage_Cross} width={50} height={50} onClick={() => OpenImage(img)} alt=''></Image>
+            </div>
+        </div>}
+        </>
     );
 }
  

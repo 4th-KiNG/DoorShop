@@ -255,12 +255,11 @@
     width: 100%;
     left: 0;
     top: 0;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(0,0,0,0.7);
-    display: none;
     &_Img{
         object-fit: cover;
         width: max-content;
@@ -296,9 +295,6 @@
     overflow-y: hidden;
 }
 
-.Open{
-    display: flex;
-}
 
 .MoreBtn{
     max-width: 300px;

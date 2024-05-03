@@ -15,6 +15,7 @@ const Outdoors = () => {
     const [listSlice, setListSlice] = useState(0)
     const [currnum, setCurrnum] = useState(1)
     const [img, setImg] = useState(o1)
+    const [showimg, setShowimg] = useState(false)
     const GoRight = () => {
         if (currnum < Math.ceil(outdoors.length / 12)){
             setCurrnum(currnum + 1)
@@ -79,8 +80,7 @@ const Outdoors = () => {
     }
     const OpenImage = (ig: StaticImageData) => {
         setImg(ig)
-        document.querySelector("body")?.classList.toggle(styles.noscroll)
-        document.getElementsByClassName(styles.OpenImage)[0].classList.toggle(styles.Open)
+        setShowimg(!showimg)
     }
     const Card = (props: CardProps) => {
         return(
@@ -91,29 +91,34 @@ const Outdoors = () => {
         )
     }
     return (
-        <div className={styles.CatalogPage}>
-            <div className={styles.CatalogHeader}>
-                <Link href="/#catalog" className={styles.CatalogHeader_Link}>Каталог</Link>
-                <Image src={arrow} width={12} height={12} alt='arrow' style={{transform: "rotate(90deg)"}} ></Image>
-                <Link href="/catalog/indoors" className={styles.CatalogHeader_Link}>Входные двери</Link>
+        <>
+            <div className={styles.CatalogPage}>
+                <div className={styles.CatalogHeader}>
+                    <Link href="/#catalog" className={styles.CatalogHeader_Link}>Каталог</Link>
+                    <Image src={arrow} width={12} height={12} alt='arrow' style={{transform: "rotate(90deg)"}} ></Image>
+                    <Link href="/catalog/indoors" className={styles.CatalogHeader_Link}>Входные двери</Link>
+                </div>
+                <div className={styles.Cards}>
+                    {outdoors.slice(0, listSlice + 12).map((card: CardProps) => {
+                        return(
+                            <Card {...card}></Card>
+                        )
+                    })}
+                </div>
+                <div className={styles.Cards_Arrows}>
+                {currnum < Math.ceil(outdoors.length / 12) && <button onClick={GoRight} className={styles.MoreBtn}>Посмотреть ещё</button>}
+                </div>
+                
             </div>
-            <div className={styles.Cards}>
-                {outdoors.slice(0, listSlice + 12).map((card: CardProps) => {
-                    return(
-                        <Card {...card}></Card>
-                    )
-                })}
-            </div>
-            <div className={styles.Cards_Arrows}>
-                <button onClick={GoRight} className={styles.MoreBtn}>Посмотреть ещё</button>
-            </div>
-            <div className={styles.OpenImage} onClick={handleClick}>
+            {showimg &&
+                <div className={styles.OpenImage} onClick={handleClick}>
                 <div style={{display: "flex"}}>
                     <Image className={styles.OpenImage_Img} ref={ref} src={img} alt=''></Image>
                     <Image src={cross} className={styles.OpenImage_Cross} width={50} height={50} onClick={() => OpenImage(img)} alt=''></Image>
                 </div>
             </div>
-        </div>
+            }
+        </>
     );
 }
  
