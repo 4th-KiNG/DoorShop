@@ -60,7 +60,7 @@ const Callback = () => {
                 <input type="text" id='name-input' onChange={handleName} value={name} placeholder='ФИО' name='username' className={styles.Callback_Input} />
                 <input type="phone" id='phone-input' onChange={handlePhone} value={phone} placeholder='Телефон' name='userphone' className={styles.Callback_Input} />
                 <div className={styles.Callback_Form_Description}>
-                    <p>Описание заявки</p>
+                    <p>Сообщение</p>
                     <textarea name="message" onChange={handleArea} value={area} className={styles.Callback_Form_Description_Area} style={{width: "100%"}} id="area"></textarea>
                 </div>
                 <div className={styles.SendBtn}>

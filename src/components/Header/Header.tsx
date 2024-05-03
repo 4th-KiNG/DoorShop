@@ -18,7 +18,7 @@ const Header = () => {
         return(
             <div className={styles.NavMenu}>
                 <nav className={styles.NavMenu_Links}>
-                    <Link href="/catalog" onClick={OpenMenu} className={styles.NavMenu_Links_Link}>Каталог</Link>
+                    <Link href="/#catalog" onClick={OpenMenu} className={styles.NavMenu_Links_Link}>Каталог</Link>
                     <Link href="/#maininfo" onClick={OpenMenu} className={styles.NavMenu_Links_Link}>Описание компании</Link>
                     <Link href="/#callback" onClick={OpenMenu} className={styles.NavMenu_Links_Link}>Заказать звонок</Link>
                     <Link href="/#footer" onClick={OpenMenu} className={styles.NavMenu_Links_Link}>Контактная информация</Link>
@@ -30,10 +30,10 @@ const Header = () => {
     }
     return (
         <header className={styles.Header}>
-            <div className={styles.Header_Logo}>
+            <Link href="/" className={styles.Header_Logo}>
                 <Image  className={styles.Header_Logo_Img} src={logo} width={40} height={40} alt='logo'></Image>
                 <p className={styles.Header_Logo_Txt}>ДВЕРИ•ВАРИАНТ</p>
-            </div>
+            </Link>
             <div className={styles.MainInfo}>
                 <div className={classNames(styles.MainInfo_Block, styles.Mail)}>
                     <Image className={styles.MainInfo_Block_Ico} src={mail} width={30} height={22} alt='mail'></Image>

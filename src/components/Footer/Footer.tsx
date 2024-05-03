@@ -13,7 +13,7 @@ const Footer = () => {
                     <p>Напольное покрытие</p>
                 </div>
                 <div className={styles.Footer_Block}>
-                    <h1 className={styles.Footer_Block_Title}>Поставщики</h1>
+                    <h1 className={styles.Footer_Block_Title}>Бренды</h1>
                     <p>CODE DECO</p>
                     <p>MSM</p>
                     <p>НОРА-М</p>

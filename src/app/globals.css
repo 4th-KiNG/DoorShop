@@ -5,6 +5,11 @@
     padding: 0;
     box-sizing: border-box;
     &::-webkit-scrollbar{
-        width: 0;
+        
     }
+}
+
+html {
+   margin-right: calc(-1 * (100vw - 100%));
+   overflow-x: hidden;
 }
