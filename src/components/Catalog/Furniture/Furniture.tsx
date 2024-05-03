@@ -615,7 +615,6 @@ const Furniture = () => {
     }
     return (
         <div className={styles.CatalogPage}>
-            <Suspense>
             <div className={styles.CatalogHeader}>
                 <Link href="/#catalog" className={styles.CatalogHeader_Link}>Каталог</Link>
                 <Image src={arrow} width={12} height={12} alt='arrow' style={{transform: "rotate(90deg)"}} ></Image>
@@ -667,7 +666,6 @@ const Furniture = () => {
                     <Image src={cross} className={styles.OpenImage_Cross} width={50} height={50} onClick={() => OpenImage(img)} alt=''></Image>
                 </div>
             </div>
-            </Suspense>
         </div>
     );
 }
