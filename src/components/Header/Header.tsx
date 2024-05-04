@@ -37,7 +37,10 @@ const Header = () => {
             <div className={styles.MainInfo}>
                 <div className={classNames(styles.MainInfo_Block, styles.Mail)}>
                     <Image className={styles.MainInfo_Block_Ico} src={phone} width={30} height={30} alt='mail'></Image>
-                    <p className={styles.MainInfo_Block_Txt}>8 953 105 37 67</p>
+                    <div>
+                        <p className={styles.MainInfo_Block_Txt}>8 953 105 37 67</p>
+                        <p className={styles.MainInfo_Block_Txt}>8 988 381 63 27</p>
+                    </div>
                 </div>
                 <div className={classNames(styles.MainInfo_Block, styles.Location)}>
                     <Image className={styles.MainInfo_Block_Ico} src={location} width={24} height={34} alt='location'></Image>

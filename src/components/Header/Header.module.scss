@@ -43,6 +43,13 @@
         gap: 8px;
         &_Txt{
             max-width: 185px;
+            @media (max-width:425px) {
+                font-size: 12px;
+            }
+        }
+        &_Ico{
+            width: 20px;
+            height: 20px;
         }
     }
 }
@@ -81,7 +88,7 @@
     @media (max-width:625px) {
         font-size: 14px;
     }
-    @media (max-width: 425px) {
+    @media (max-width: 350px) {
         display: none;
     }
 }
