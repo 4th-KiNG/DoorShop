@@ -664,13 +664,13 @@ const Furniture = () => {
             </div>
             
         </div>
-        {showimg && 
+        {/* {showimg && 
         <div className={styles.OpenImage} onClick={handleClick}>
             <div style={{display: "flex"}}>
                 <Image className={styles.OpenImage_Img} src={img} ref={ref} alt=''></Image>
                 <Image src={cross} className={styles.OpenImage_Cross} width={50} height={50} onClick={() => OpenImage(img)} alt=''></Image>
             </div>
-        </div>}
+        </div>} */}
         
         </>
     );

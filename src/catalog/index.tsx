@@ -939,7 +939,62 @@ import lo5 from './furniture/loops/5.webp'
 import lo6 from './furniture/loops/6.webp'
 import lo7 from './furniture/loops/7.webp'
 import lo8 from './furniture/loops/8.webp'
-
+import fh1 from "./floor/hall/1.webp"
+import fh2 from "./floor/hall/2.webp"
+import fh3 from "./floor/hall/3.webp"
+import fh4 from "./floor/hall/4.webp"
+import fh5 from "./floor/hall/5.webp"
+import fh6 from "./floor/hall/6.webp"
+import fh7 from "./floor/hall/7.webp"
+import fh8 from "./floor/hall/8.webp"
+import fh9 from "./floor/hall/9.webp"
+import fh10 from "./floor/hall/10.webp"
+import fh11 from "./floor/hall/11.webp"
+import fh12 from "./floor/hall/12.webp"
+import fh13 from "./floor/hall/13.webp"
+import fh14 from "./floor/hall/14.webp"
+import fh15 from "./floor/hall/15.webp"
+import fh16 from "./floor/hall/16.webp"
+import fh17 from "./floor/hall/17.webp"
+import fh18 from "./floor/hall/18.webp"
+import fh19 from "./floor/hall/19.webp"
+import fh20 from "./floor/hall/20.webp"
+import fk1 from "./floor/kitchen/1.webp"
+import fk2 from "./floor/kitchen/2.webp"
+import fk3 from "./floor/kitchen/3.webp"
+import fk4 from "./floor/kitchen/4.webp"
+import fk5 from "./floor/kitchen/5.webp"
+import fk6 from "./floor/kitchen/6.webp"
+import fk7 from "./floor/kitchen/7.webp"
+import fk8 from "./floor/kitchen/8.webp"
+import fk9 from "./floor/kitchen/9.webp"
+import fk10 from "./floor/kitchen/10.webp"
+import fk11 from "./floor/kitchen/11.webp"
+import fk12 from "./floor/kitchen/12.webp"
+import fk13 from "./floor/kitchen/13.webp"
+import fk14 from "./floor/kitchen/14.webp"
+import fk15 from "./floor/kitchen/15.webp"
+import fk16 from "./floor/kitchen/16.webp"
+import fl1 from "./floor/livingroom/1.webp"
+import fl2 from "./floor/livingroom/2.webp"
+import fl3 from "./floor/livingroom/3.webp"
+import fl4 from "./floor/livingroom/4.webp"
+import fl5 from "./floor/livingroom/5.webp"
+import fl6 from "./floor/livingroom/6.webp"
+import fl7 from "./floor/livingroom/7.webp"
+import fl8 from "./floor/livingroom/8.webp"
+import fl9 from "./floor/livingroom/9.webp"
+import fl10 from "./floor/livingroom/10.webp"
+import fl11 from "./floor/livingroom/11.webp"
+import fl12 from "./floor/livingroom/12.webp"
+import fl13 from "./floor/livingroom/13.webp"
+import fl14 from "./floor/livingroom/14.webp"
+import fl15 from "./floor/livingroom/15.webp"
+import fl16 from "./floor/livingroom/16.webp"
+import fl17 from "./floor/livingroom/17.webp"
+import fl18 from "./floor/livingroom/18.webp"
+import fl19 from "./floor/livingroom/19.webp"
+import fl20 from "./floor/livingroom/20.webp"
 export{
     d1,
     d2,
@@ -1875,5 +1930,61 @@ l74,
 l75,
 l76,
 lo1,
-lo2,lo3,lo4,lo5,lo6,lo7,lo8
+lo2,lo3,lo4,lo5,lo6,lo7,lo8,
+fh1,
+fh2,
+fh3,
+fh4,
+fh5,
+fh6,
+fh7,
+fh8,
+fh9,
+fh10,
+fh11,
+fh12,
+fh13,
+fh14,
+fh15,
+fh16,
+fh17,
+fh18,
+fh19,
+fh20,
+fk1,
+fk2,
+fk3,
+fk4,
+fk5,
+fk6,
+fk7,
+fk8,
+fk9,
+fk10,
+fk11,
+fk12,
+fk13,
+fk14,
+fk15,
+fk16,
+fl1,
+fl2,
+fl3,
+fl4,
+fl5,
+fl6,
+fl7,
+fl8,
+fl9,
+fl10,
+fl11,
+fl12,
+fl13,
+fl14,
+fl15,
+fl16,
+fl17,
+fl18,
+fl19,
+fl20
 }

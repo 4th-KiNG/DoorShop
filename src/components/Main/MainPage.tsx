@@ -12,6 +12,7 @@ const MainPage = () => {
         <div style={{marginLeft: "auto", marginRight: "auto"}}>
             <Header></Header>
             <div className={styles.MainPage}>
+                
                 <MainInfo></MainInfo>
                 <Links></Links>
                 <Info></Info>

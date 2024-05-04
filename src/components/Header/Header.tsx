@@ -1,5 +1,5 @@
 'use client'
-import { location, logo, mail, phone } from '@/assets';
+import { location, logo, mail, phone, star } from '@/assets';
 import styles from './Header.module.scss'
 import Image from 'next/image';
 import classNames from 'classnames';
@@ -31,7 +31,7 @@ const Header = () => {
     return (
         <header className={styles.Header}>
             <Link href="/" className={styles.Header_Logo}>
-                <Image  className={styles.Header_Logo_Img} src={logo} width={40} height={40} alt='logo'></Image>
+                <Image  className={styles.Header_Logo_Img} src={star} width={40} height={40} alt='logo'></Image>
                 <p className={styles.Header_Logo_Txt}>ДВЕРИ•ВАРИАНТ</p>
             </Link>
             <div className={styles.MainInfo}>
@@ -43,13 +43,12 @@ const Header = () => {
                     <Image className={styles.MainInfo_Block_Ico} src={location} width={24} height={34} alt='location'></Image>
                     <p className={styles.MainInfo_Block_Txt}>г.Краснодар ул.Кирилла Россинского 18, этаж 2</p>
                 </div>
-                <div className={styles.BurgerMenu} onClick={OpenMenu}>
+                {/* <div className={styles.BurgerMenu} onClick={OpenMenu}>
                     <div className={classNames(styles.BurgerMenu_Line, styles.BurgerMenu_Top)}></div>
                     <div className={classNames(styles.BurgerMenu_Line, styles.BurgerMenu_Mid)}></div>
                     <div className={classNames(styles.BurgerMenu_Line, styles.BurgerMenu_Bot)}></div>
-                </div>
+                </div> */}
             </div>
-            {menu && <Menu></Menu>}
         </header>
     );
 }

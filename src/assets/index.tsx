@@ -15,7 +15,9 @@ import arrow from './arrow.svg'
 import leftrightarrow from './leftrightarrow.svg'
 import cross from './cross.svg'
 import phone from './phone.svg'
+import star from './star.png'
 export{
+    star,
     phone,
     cross,
     arrow,

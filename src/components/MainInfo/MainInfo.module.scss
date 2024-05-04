@@ -18,12 +18,18 @@
         @media (max-width:550px) {
             height: 260px;
         }
+        @media (max-width:400px) {
+            height: 220px;
+        }
     }
     @media (max-width: 900px) {
         height: 350px;
     }
     @media (max-width:550px) {
         height: 260px;
+    }
+    @media (max-width:400px) {
+        height: 220px;
     }
 }
 
@@ -52,6 +58,9 @@
     @media (max-width:550px) {
         height: 260px;
         gap: 14px;
+    }
+    @media (max-width:400px) {
+        height: 220px;
     }
     &_Title{
         font-size: 48px;
