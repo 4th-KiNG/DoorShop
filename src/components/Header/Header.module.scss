@@ -48,8 +48,11 @@
             }
         }
         &_Ico{
-            width: 20px;
-            height: 20px;
+            @media (max-width:425px) {
+                width: 20px;
+                height: 20px;
+            }
+            
         }
     }
 }
