@@ -4,6 +4,7 @@ import Link from 'next/link';
 const Catalog = () => {
     return (
         <div className={styles.CatalogPage}>
+            <div></div>
             <div className={styles.CatalogHeader}>
                 <Link href="/catalog" className={styles.CatalogHeader_Link}>Каталог</Link>
             </div>
