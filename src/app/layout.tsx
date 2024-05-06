@@ -3,7 +3,7 @@ import "./globals.css";
 import Head from "next/head";
 export const metadata: Metadata = {
   title: "ДВЕРИ•ВАРИАНТ",
-  description: "Двери от надежнах застройщиков по доступным ценам",
+  description: "Входные и межкомнатные двери в Краснодаре",
   icons: {
     icon: ['/favicon.ico']
   },
