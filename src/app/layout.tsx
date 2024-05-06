@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "ДВЕРИ•ВАРИАНТ",
   description: "Двери от надежнах застройщиков по доступным ценам",
   icons: {
-    icon: ['/favicon.ico', '/favicon-16x16.png', '/favicon-32x32.png']
+    icon: ['/favicon.ico']
   }
 };
 
