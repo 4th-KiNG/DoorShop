@@ -4,8 +4,8 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "ДВЕРИ•ВАРИАНТ",
   description: "Двери от надежнах застройщиков по доступным ценам",
-  openGraph: {
-    title: "Двери"
+  icons: {
+    icon: '/favicon.ico'
   }
 };
 

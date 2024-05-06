@@ -7,6 +7,7 @@ import Links from "../Links/Links";
 import Info from "../Info/Info";
 import Callback from "../Callback/Callback";
 import Footer from "../Footer/Footer";
+import Head from "next/head";
 const MainPage = () => {
     return (
         <div style={{marginLeft: "auto", marginRight: "auto"}}>
