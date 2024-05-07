@@ -4,7 +4,7 @@
         position: absolute;
         width: 100%;
         height: calc(100% - 3px);
-        background-color: rgba(0,0,0,0.4);
+        background-color: rgba(0,0,0,0.5);
         @media (max-width:900px) {
             height: 100%;
         }
@@ -84,7 +84,7 @@
     &_Txt{
         color: white;
         font-size: 20px;
-        font-weight: 200;
+        font-weight: 300;
         @media (max-width:900px) {
             font-size: 16px;
         }
