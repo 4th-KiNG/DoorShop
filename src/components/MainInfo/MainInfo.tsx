@@ -1,3 +1,4 @@
+'use client'
 import { bg } from '@/assets';
 import styles from './MainInfo.module.scss'
 import Image from 'next/image';
