@@ -26,6 +26,7 @@ const Footer = () => {
                     <Link style={{display: "flex", alignItems: "center", gap: "5px", cursor: "pointer", textDecoration: "none", color: "white"}} href="/#footer">Контакты</Link>
                     <Link style={{display: "flex", alignItems: "center", gap: "5px", cursor: "pointer", textDecoration: "none", color: "white"}} href="/#footer">Бренды</Link>
                     <Link style={{display: "flex", alignItems: "center", gap: "5px", cursor: "pointer", textDecoration: "none", color: "white"}} href="/#callback">Заказать звонок</Link>
+                    <Link style={{display: "flex", alignItems: "center", gap: "5px", cursor: "pointer", textDecoration: "none", color: "white"}} href="/">Наши работы</Link>
                 </div>
             </div>
         </footer>
