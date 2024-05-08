@@ -8,6 +8,9 @@ export default function Home() {
   return (
     <>
       <main>
+        <Head>
+          <meta name="yandex-verification" content="6acc5604e1c351a1" />
+        </Head>
         <MainPage></MainPage>
       </main>
     </>
