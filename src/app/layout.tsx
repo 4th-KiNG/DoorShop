@@ -25,6 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <Head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="48x48"/>
+        <meta name="yandex-verification" content="6acc5604e1c351a1" />
       </Head>
       <body>
         <p className="hide-text">Купить входные и межкомнатные двери по выгодным ценам в интернет-магазине. Широкий ассортимент дверей разных стилей и цветов. Двери из натурального дерева, металла, пластика и комбинированные. Высокое качество и надежность. Удобный интерфейс сайта и простой процесс заказа. Доставка по Краснодару и Краснодарскому краю.</p>
