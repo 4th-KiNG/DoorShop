@@ -4,6 +4,11 @@ import '../../../../public/fonts/lato.css'
 import Footer from "@/components/Footer/Footer";
 import Furniture from "@/components/Catalog/Furniture/Furniture";
 import { Suspense } from 'react'
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Купить дверные ручки в Краснодаре"
+}
 
 const FurniturePage = () => {
     return (
