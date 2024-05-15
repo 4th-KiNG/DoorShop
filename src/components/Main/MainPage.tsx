@@ -1,13 +1,14 @@
-import { bg } from "@/assets";
-import Header from "../Header/Header";
 import styles from './MainPage.module.scss'
-import Image from "next/image";
-import MainInfo from "../MainInfo/MainInfo";
-import Links from "../Links/Links";
-import Info from "../Info/Info";
-import Callback from "../Callback/Callback";
-import Footer from "../Footer/Footer";
-import Head from "next/head";
+import dynamic from "next/dynamic";
+
+const Header = dynamic(() => import("../Header/Header"))
+const MainInfo = dynamic(() => import("../MainInfo/MainInfo"))
+const Links = dynamic(() => import("../Links/Links"))
+const Info = dynamic(() => import("../Info/Info"))
+const Callback = dynamic(() => import("../Callback/Callback"))
+const Footer = dynamic(() => import("../Footer/Footer"))
+
+
 const MainPage = () => {
     return (
         <div style={{marginLeft: "auto", marginRight: "auto"}}>
