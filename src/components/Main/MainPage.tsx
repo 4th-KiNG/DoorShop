@@ -16,8 +16,9 @@ const MainPage = () => {
             <div className={styles.MainPage}>
                 <MainInfo></MainInfo>
                 <Links></Links>
-                <Info></Info>
                 <Callback></Callback>
+                <Info></Info>
+                
                 <Footer></Footer>
             </div>
         </div>
