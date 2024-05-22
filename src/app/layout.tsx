@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Head from "next/head";
 export const metadata: Metadata = {
-  title: "Купить входные и межкомнатные двери в Краснодаре ДВЕРИ•ВАРИАНТ",
+  title: "ДВЕРИ•ВАРИАНТ Купить входные и межкомнатные двери в Краснодаре",
   description: "Купить входные и межкомнатные двери по выгодным ценам в интернет-магазине в Краснодаре. Широкий ассортимент дверей разных стилей и цветов. Двери из натурального дерева, металла, пластика и комбинированные. Высокое качество и надежность. Удобный интерфейс сайта и простой процесс заказа. Доставка по Краснодару и Краснодарскому краю.",
   icons: {
     icon: ['/icon.ico']
@@ -23,9 +23,36 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+              m[i].l=1*new Date();
+              for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+              k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+              (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+              ym(97349438, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+              });
+            `,
+          }}
+        />
+      </Head>
       <body>
+        <noscript>
+          <div>
+            <img src="https://mc.yandex.ru/watch/97349438" style={{ position: 'absolute', left: '-9999px' }} alt="" />
+          </div>
+        </noscript>
         <p className="hide-text">Купить входные и межкомнатные двери по выгодным ценам в интернет-магазине. Широкий ассортимент дверей разных стилей и цветов. Двери из натурального дерева, металла, пластика и комбинированные. Высокое качество и надежность. Удобный интерфейс сайта и простой процесс заказа. Доставка по Краснодару и Краснодарскому краю.</p>
         {children}
+        
       </body>
     </html>
   );
