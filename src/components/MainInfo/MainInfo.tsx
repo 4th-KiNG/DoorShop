@@ -1,20 +1,66 @@
-import { bg } from '@/assets';
+"use client"
+import { navarr, bg, slide1, slide2 } from '@/assets';
 import styles from './MainInfo.module.scss'
 import Image from 'next/image';
-const MainInfo = () => {
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import { useRef } from 'react';
+
+const MainInfo: React.FC = () => {
+    const sliderref = useRef(null)
+    const slides = [
+        {
+            id: 1,
+            img: slide1
+        },
+        {
+            id: 2,
+            img: slide2,
+        }
+    ]
+    const HandleLeft = () => {
+        if(!sliderref.current) return;
+        //@ts-ignore
+        sliderref.current.swiper.slidePrev()
+
+    }
+    const HandleRight = () => {
+        if(!sliderref.current) return;
+        //@ts-ignore
+        sliderref.current.swiper.slideNext()
+        
+    }
     return (
         <div className={styles.Page}>
-            <div className={styles.Background}>
-                <div className={styles.Background_Dark}></div>
-                <Image className={styles.Background_Img} src={bg} height={400} alt="background"></Image>
-            </div>
-            <div className={styles.MainText} id='maininfo'>
-                <div style={{display: "flex", flexDirection: "column", gap: "10px"}}>
-                    <h1 className={styles.MainText_Title}>Входные и межкомнатные двери в Каснодаре по доступным ценам!</h1>
-                    <div className={styles.MainText_Line}></div>
+            <Swiper 
+            className={styles.Slider}
+            ref={sliderref}
+            spaceBetween={50} 
+            slidesPerView={1} 
+            loop={true}
+            autoplay={{
+                
+                delay: 5000, // Задержка в миллисекундах между автопрокруткой слайдов
+                disableOnInteraction: false, // Автопрокрутка не будет останавливаться после взаимодействия с слайдером
+            }}
+            modules={[Autoplay, Navigation, Pagination]}>
+                {slides.map(slide => {
+                    return(
+                        <>
+                        <SwiperSlide>
+                            <Image src={slide.img} className={styles.Slider_Img} alt='img'height={300}></Image>
+                        </SwiperSlide>
+                        </>
+                    )
+                })}
+                <div className={styles.Slider_Nav}>
+                    <Image src={navarr} onClick={HandleLeft} className={styles.Arr_Left} alt='arr'></Image>
+                    <Image src={navarr} onClick={HandleRight} className={styles.Arr_Right} alt='arr'></Image>
                 </div>
-                <p className={styles.MainText_Txt}>Для вас в наличии входные и межкомнатные двери, дверная фурнитура и напольное покрытие. Новинки всех производителей у нас и только для вас. Квалифицированные сотрудники, индивидуальный подход, консультация по подбору товара. Доставка в любой район города и края. Профессиональная и качественная установка дверей с гарантией от магазина. Мы ждём вас!</p>
-            </div>
+                
+            </Swiper>
+            
         </div>
     );
 }
