@@ -1,76 +1,176 @@
-"use client"
-import styles from '../Catalog.module.scss'
-import Image, { StaticImageData } from 'next/image'
+'use client'
+import styles from './Outdoors.module.scss'
+import Link from 'next/link';
+import Image, { StaticImageData } from 'next/image';
 import {useState, useRef, useEffect} from 'react'
-import Link from 'next/link'
-import { cross, arrow } from '@/assets'
-import { o1, o2, o3, o4, o5, o6, o7, o8, o9, o10, o11, o12, o13, o14, o15, o16, o17, o18, o19, o20, o21, o22, o23, o24, o25, o26, o27, o28, o29, o30, o31, o32, o33, o34, o35, o36, o37, o38, o39, o40, o41, o42, o43, o44, o45, o46, o47, o48, } from '@/catalog'
+import { arrow, arrowdown, cross, filter } from '@/assets';
+import Head from 'next/head';
+import Slider from "rc-slider";
+import 'rc-slider/assets/index.css';
+import styles1 from '@/components/ui/DoubleRange/DoubleRange.module.scss'
+import '@/components/ui/DoubleRange/DoubleRange.css'
+import { d1, d2, d3,} from '@/catalog';
+
 interface CardProps{
-    id: number,
+    id: string,
     img: StaticImageData,
-    price: number
+    name: string,
+    price: string,
+    material: string
 }
-const Outdoors = () => {
+
+interface RangeProps {
+    min: number;
+    max: number;
+}
+
+interface CheckBox{
+    paragraph: string,
+    value: string
+}
+
+interface CheckBoxes{
+    CheckBoxList: CheckBox[]
+}
+
+const DoubleRange = ({ min, max }: RangeProps) => {
+    const [range, setRange] = useState([min, max]);
+
+    const handleSliderChange = (newRange: any) => {
+        setRange(newRange);
+    };
+
+    const handleInputChange = (index: number, value: number) => {
+        const newRange = [...range];
+        newRange[index] = value;
+        if (newRange[0] <= newRange[1]) {
+            setRange(newRange);
+        }
+    };
+
+    return (
+        <>
+            <div className={styles1.Inputs}>
+                <input
+                    className={styles1.Inputs_Input}
+                    type="number"
+                    onChange={(e) => handleInputChange(0, parseInt(e.target.value))}
+                    value={range[0]}
+                    min={min}
+                    max={max}
+                />
+                <input
+                    className={styles1.Inputs_Input}
+                    type="number"
+                    onChange={(e) => handleInputChange(1, parseInt(e.target.value))}
+                    value={range[1]}
+                    min={min}
+                    max={max}
+                />
+            </div>
+            <Slider
+                range
+                min={min}
+                max={max}
+                value={range}
+                onChange={handleSliderChange}
+            />
+        </>
+    );
+}
+
+const CheckBoxes = ({CheckBoxList} : CheckBoxes) => {
+    return(
+        <div className={styles.CheckBoxes}>
+        {CheckBoxList.map((el: CheckBox) => {
+            return(
+                <>
+                <label className={styles.CheckBoxes_CheckBox}>
+                    <input type="checkbox" />
+                    <span>{el.paragraph}</span>
+                </label>
+                </>
+            )
+        })}
+        </div>
+    )
+}
+
+const Indoors = () => {
     const ref = useRef(null);
     const [listSlice, setListSlice] = useState(0)
     const [currnum, setCurrnum] = useState(1)
-    const [img, setImg] = useState(o1)
+    const [img, setImg] = useState(d1)
     const [showimg, setShowimg] = useState(false)
+    const [priceshow, setPriceShow] = useState(true)
+    const [materialshow, setMaterialShow] = useState(false)
+    const [showGlass, setShowGlass] = useState(false)
+    const [showMod, setShowMod] = useState(false)
+    const [showBuild, setShowBuild] = useState(false)
+    const [showCreater, setShowCreater] = useState(false)
+    const [showMobileFilters, setShowMobileFilters] = useState(false)
+    const place = [
+        {
+            paragraph: "В дом",
+            value: "В дом"
+        },
+        {
+            paragraph: "В квартиру",
+            value: "В квартиру"
+        }
+    ]
+    const glassing = [
+        {
+            paragraph: "Без стекла (глухое)",
+            value: "Без стекла (глухое)"
+        },
+        {
+            paragraph: "С зеркалом",
+            value: "С зеркалом"
+        },
+        {
+            paragraph: "Со стеклом",
+            value: "Со стеклом"
+        },
+        {
+            paragraph: "Стеклопакет",
+            value: "Стеклопакет"
+        }
+    ]
+    const props = [
+        {
+            paragraph: "Сменная панель",
+            value: "Сменная панель"
+        },
+        {
+            paragraph: "Терморазрыв",
+            value: "Терморазрыв"
+        },
+        {
+            paragraph: "С ковкой",
+            value: "С ковкой"
+        },
+        {
+            paragraph: "Винорит",
+            value: "Винорит"
+        },
+    ]
     const GoRight = () => {
-        if (currnum < Math.ceil(outdoors.length / 12)){
+        if (currnum < Math.ceil(indoors.length / 12)){
             setCurrnum(currnum + 1)
             setListSlice(listSlice + 12)
         }
     }
-    const outdoors =[
-        {id: 1000, img: o1, price: 0},
-        {id: 1001, img: o2, price: 0},
-        {id: 1002, img: o3, price: 0},
-        {id: 1003, img: o4, price: 0},
-        {id: 1004, img: o5, price: 0},
-        {id: 1005, img: o6, price: 0},
-        {id: 1006, img: o7, price: 0},
-        {id: 1007, img: o8, price: 0},
-        {id: 1008, img: o9, price: 0},
-        {id: 1009, img: o10, price: 0},
-        {id: 1010, img: o11, price: 0},
-        {id: 1011, img: o12, price: 0},
-        {id: 1012, img: o13, price: 0},
-        {id: 1013, img: o14, price: 0},
-        {id: 1014, img: o15, price: 0},
-        {id: 1015, img: o16, price: 0},
-        {id: 1016, img: o17, price: 0},
-        {id: 1017, img: o18, price: 0},
-        {id: 1018, img: o19, price: 0},
-        {id: 1019, img: o20, price: 0},
-        {id: 1020, img: o21, price: 0},
-        {id: 1021, img: o22, price: 0},
-        {id: 1022, img: o23, price: 0},
-        {id: 1023, img: o24, price: 0},
-        {id: 1024, img: o25, price: 0},
-        {id: 1025, img: o26, price: 0},
-        {id: 1026, img: o27, price: 0},
-        {id: 1027, img: o28, price: 0},
-        {id: 1028, img: o29, price: 0},
-        {id: 1029, img: o30, price: 0},
-        {id: 1030, img: o31, price: 0},
-        {id: 1031, img: o32, price: 0},
-        {id: 1032, img: o33, price: 0},
-        {id: 1033, img: o34, price: 0},
-        {id: 1034, img: o35, price: 0},
-        {id: 1035, img: o36, price: 0},
-        {id: 1036, img: o37, price: 0},
-        {id: 1037, img: o38, price: 0},
-        {id: 1038, img: o39, price: 0},
-        {id: 1039, img: o40, price: 0},
-        {id: 1040, img: o41, price: 0},
-        {id: 1041, img: o42, price: 0},
-        {id: 1042, img: o43, price: 0},
-        {id: 1043, img: o44, price: 0},
-        {id: 1044, img: o45, price: 0},
-        {id: 1045, img: o46, price: 0},
-        {id: 1046, img: o47, price: 0},
-        {id: 1047, img: o48, price: 0},
+    const indoors = [
+        {id: "2001", img: d1, name: "Дверь №1", price: "3000", material: "Дерево"},
+        {id: "2001", img: d2, name: "Дверь №2", price: "4000", material: "Пластик"},
+        {id: "2001", img: d3, name: "Дверь №3", price: "1000", material: "Шпон"},
+        {id: "2001", img: d1, name: "Дверь №1", price: "3000", material: "Дерево"},
+        {id: "2001", img: d2, name: "Дверь №2", price: "4000", material: "Пластик"},
+        {id: "2001", img: d3, name: "Дверь №3", price: "1000", material: "Шпон"},
+        {id: "2001", img: d1, name: "Дверь №1", price: "3000", material: "Дерево"},
+        {id: "2001", img: d2, name: "Дверь №2", price: "4000", material: "Пластик"},
+        {id: "2001", img: d3, name: "Дверь №3", price: "1000", material: "Шпон"},
     ]
     const handleClick = (e: any) => {
         //@ts-ignore
@@ -84,42 +184,131 @@ const Outdoors = () => {
     }
     const Card = (props: CardProps) => {
         return(
-            <div className={styles.CardOutdoor} onClick={() => OpenImage(props.img)}>
-                <Image src={props.img} className={styles.CardOutdoor_Img} alt='door'></Image>
-                <p>{props.id}</p>
-            </div>
+            <Link href={"/catalog/outdoors/1"} className={styles.Card}>
+                <Image src={props.img} className={styles.Card_Img} alt='door'></Image>
+                <div className={styles.Card_Info}>
+                    <p>{props.name}</p>
+                    <p>от {props.price}</p>
+                </div>
+            </Link>
         )
     }
     return (
         <>
-            <div className={styles.CatalogPage}>
-                <div className={styles.CatalogHeader}>
-                    <Link href="/#catalog" className={styles.CatalogHeader_Link}>Каталог</Link>
-                    <Image src={arrow} width={12} height={12} alt='arrow' style={{transform: "rotate(90deg)"}} ></Image>
-                    <Link href="/catalog/indoors" className={styles.CatalogHeader_Link}>Входные двери</Link>
+        <div className={styles.CatalogPage}>
+            <div className={styles.CatalogHeader}>
+                <Link href="/#catalog" className={styles.CatalogHeader_Link}>Каталог</Link>
+                <Image src={arrow} width={12} height={12} alt='arrow' style={{transform: "rotate(90deg)"}} ></Image>
+                <Link href="/catalog/indoors" className={styles.CatalogHeader_Link}>Входные двери</Link>
+            </div>
+            <div className={styles.Products}>
+                <div className={styles.Products_Filters}>
+                    <div className={styles.Products_Filters_Title}>
+                        <Image src={filter} alt='filter' width={30} height={30}></Image>
+                        <p>Фильтры</p>
+                    </div>
+                    <div className={styles.Products_Filters_Filter}>
+                        <div className={styles.Products_Filters_Checkbox} onClick={() => setPriceShow(!priceshow)}>
+                            <p>Розничная цена</p>
+                            <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${priceshow ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
+                        </div>
+                        <div style={{overflow: "hidden", height: `${priceshow ? "max-content" : "0px"}`, width: "100%"}}><DoubleRange min={0} max={100} /></div>
+                    </div>
+                    <div className={styles.Products_Filters_Filter}>
+                        <div className={styles.Products_Filters_Checkbox} onClick={() => setMaterialShow(!materialshow)}>
+                            <p>Место установки</p>
+                            <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${materialshow ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
+                        </div>
+                        <div style={{overflow: "hidden", height: `${materialshow ? "max-content" : "0px"}`, width: "100%"}}>
+                            <div className={styles.CheckBoxes}>
+                                <CheckBoxes CheckBoxList={place}/>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={styles.Products_Filters_Filter}>
+                        <div className={styles.Products_Filters_Checkbox} onClick={() => setShowGlass(!showGlass)}>
+                            <p>Остекление</p>
+                            <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${showGlass ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
+                        </div>
+                        <div style={{overflow: "hidden", height: `${showGlass ? "max-content" : "0px"}`, width: "100%"}}>
+                            <CheckBoxes CheckBoxList={glassing} />
+                        </div>
+                    </div>
+                    <div className={styles.Products_Filters_Filter}>
+                        <div className={styles.Products_Filters_Checkbox} onClick={() => setShowMod(!showMod)}>
+                            <p>Дополнительные свойства</p>
+                            <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${showMod ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
+                        </div>
+                        <div style={{overflow: "hidden", height: `${showMod ? "max-content" : "0px"}`, width: "100%"}}>
+                            <CheckBoxes CheckBoxList={props} />
+                        </div>
+                    </div>
                 </div>
-                <div className={styles.Cards}>
-                    {outdoors.slice(0, listSlice + 12).map((card: CardProps) => {
+                <div className={styles.Products_Filters_Mobile}>
+                    <div className={styles.Products_Filters_Mobile_Title} onClick={() => setShowMobileFilters(!showMobileFilters)}>
+                        <Image src={filter} className={styles.Products_Filters_Mobile_Ico} alt='filter' width={30} height={30}></Image>
+                        <p>Фильтры</p>
+                    </div>
+                    <div className={styles.Products_Filters_Mobile_Blocks} style={{height: `${showMobileFilters ? "max-content" : "0px"}`}}>
+                        <div className={styles.Products_Filters_Filter}>
+                            <div className={styles.Products_Filters_Checkbox} onClick={() => setPriceShow(!priceshow)}>
+                                <p>Розничная цена</p>
+                                <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${priceshow ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
+                            </div>
+                            <div style={{overflow: "hidden", height: `${priceshow ? "max-content" : "0px"}`, width: "100%"}}><DoubleRange min={0} max={100} /></div>
+                        </div>
+                        <div className={styles.Products_Filters_Filter}>
+                            <div className={styles.Products_Filters_Checkbox} onClick={() => setMaterialShow(!materialshow)}>
+                                <p>Место установки</p>
+                                <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${materialshow ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
+                            </div>
+                            <div style={{overflow: "hidden", height: `${materialshow ? "max-content" : "0px"}`, width: "100%"}}>
+                                <div className={styles.CheckBoxes}>
+                                    <CheckBoxes CheckBoxList={place}/>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.Products_Filters_Filter}>
+                            <div className={styles.Products_Filters_Checkbox} onClick={() => setShowGlass(!showGlass)}>
+                                <p>Остекление</p>
+                                <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${showGlass ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
+                            </div>
+                            <div style={{overflow: "hidden", height: `${showGlass ? "max-content" : "0px"}`, width: "100%"}}>
+                                <CheckBoxes CheckBoxList={glassing} />
+                            </div>
+                        </div>
+                        <div className={styles.Products_Filters_Filter}>
+                            <div className={styles.Products_Filters_Checkbox} onClick={() => setShowMod(!showMod)}>
+                                <p>Дополнительные свойства</p>
+                                <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${showMod ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
+                            </div>
+                            <div style={{overflow: "hidden", height: `${showMod ? "max-content" : "0px"}`, width: "100%"}}>
+                                <CheckBoxes CheckBoxList={props} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.Products_Cards}>
+                    {indoors.slice(0, listSlice + 12).map((card: CardProps) => {
                         return(
                             <Card {...card}></Card>
                         )
                     })}
                 </div>
                 <div className={styles.Cards_Arrows}>
-                {currnum < Math.ceil(outdoors.length / 12) && <button onClick={GoRight} className={styles.MoreBtn}>Посмотреть ещё</button>}
-                </div>
-                
-            </div>
-            {showimg &&
-                <div className={styles.OpenImage} onClick={handleClick}>
-                <div style={{display: "flex"}}>
-                    <Image className={styles.OpenImage_Img} ref={ref} src={img} alt=''></Image>
-                    <Image src={cross} className={styles.OpenImage_Cross} width={50} height={50} onClick={() => OpenImage(img)} alt=''></Image>
+                {currnum < Math.ceil(indoors.length / 12) && <button onClick={GoRight} className={styles.MoreBtn}>Посмотреть ещё</button>}
                 </div>
             </div>
-            }
+        </div>
+        {showimg && 
+        <div className={styles.OpenImage} onClick={handleClick}>
+            <div style={{display: "flex"}}>
+                <Image className={styles.OpenImage_Img} src={img} ref={ref} alt=''></Image>
+                <Image src={cross} className={styles.OpenImage_Cross} width={50} height={50} onClick={() => OpenImage(img)} alt=''></Image>
+            </div>
+        </div>}
         </>
     );
 }
  
-export default Outdoors;
+export default Indoors;

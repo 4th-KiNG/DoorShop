@@ -1,4 +1,4 @@
-.CatalogPage{
+.ProductPage{
     max-width: 1440px;
     margin-left: auto;
     overflow: hidden;
@@ -15,7 +15,7 @@
     }
 }
 
-.CatalogHeader{
+.ProductHeader{
     margin-top: 10px;
     display: flex;
     gap: 5px;
@@ -27,6 +27,28 @@
         font-size: 16px;
         @media (max-width:500px) {
             font-size: 12px;
+        }
+    }
+}
+
+.Product{
+    display: flex;
+    justify-content: space-evenly;
+    &_Image{
+        width: 300px;
+        height: auto;
+    }
+    &_Info{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-size: 20px;
+        &_Base{
+            color: #999999;
+
+        }
+        &_Custom{
+            color: black;
         }
     }
 }

@@ -19,7 +19,11 @@ import star from './star.png'
 import navarr from './navarr.svg'
 import slide1 from './slide1.jpeg'
 import slide2 from './slide2.jpeg'
+import filter from './filter.svg'
+import arrowdown from './arrowdown.svg'
 export{
+    arrowdown,
+    filter,
     slide1,
     slide2,
     navarr,
