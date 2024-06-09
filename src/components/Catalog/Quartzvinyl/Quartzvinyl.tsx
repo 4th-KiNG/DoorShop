@@ -1,5 +1,5 @@
 'use client'
-import styles from './Furniture.module.scss'
+import styles from './Quartzvinyl.module.scss'
 import Link from 'next/link';
 import Image, { StaticImageData } from 'next/image';
 import {useState, useRef, useEffect} from 'react'
@@ -96,48 +96,93 @@ const CheckBoxes = ({CheckBoxList} : CheckBoxes) => {
     )
 }
 
-const Laminate = () => {
+const Quartzvinyl = () => {
     const ref = useRef(null);
     const [listSlice, setListSlice] = useState(0)
     const [currnum, setCurrnum] = useState(1)
     const [img, setImg] = useState(d1)
     const [showimg, setShowimg] = useState(false)
     const [priceshow, setPriceShow] = useState(true)
-    const [materialshow, setMaterialShow] = useState(false)
-    const [showGlass, setShowGlass] = useState(false)
-    const [showMod, setShowMod] = useState(false)
-    const [showBuild, setShowBuild] = useState(false)
+    const [baseShow, setBaseShow] = useState(false)
+    const [showType, setShowType] = useState(false)
+    const [showFask, setShowFask] = useState(false)
     const [showCreater, setShowCreater] = useState(false)
     const [showMobileFilters, setShowMobileFilters] = useState(false)
+    const base = [
+        {
+            paragraph: "SPC",
+            value: "SPC"
+        },
+        {
+            paragraph: "Кварц-винил",
+            value: "Кварц-винил"
+        },
+        {
+            paragraph: "ABA",
+            value: "ABA"
+        },
+        {
+            paragraph: "WPC",
+            value: "WPC"
+        }
+    ]
     const type = [
         {
-            paragraph: "Ручки",
-            value: "Ручки"
+            paragraph: "Замковый",
+            value: "Замковый"
         },
         {
-            paragraph: "Петли",
-            value: "Петли"
+            paragraph: "Клеевой",
+            value: "Клеевой"
+        },
+    ]
+    const fask = [
+        {
+            paragraph: "Нет",
+            value: "Нет"
         },
         {
-            paragraph: "Врезные замки",
-            value: "Врезные замки"
+            paragraph: "Микро",
+            value: "Микро"
         },
         {
-            paragraph: "Защелки",
-            value: "Защелки"
+            paragraph: "V4",
+            value: "V4"
+        },
+    ]
+    const creater = [
+        {
+            paragraph: "Tarkett",
+            value: "Tarkett"
         },
         {
-            paragraph: "Накладки",
-            value: "Накладки"
+            paragraph: "Art",
+            value: "Art"
         },
         {
-            paragraph: "Фиксаторы",
-            value: "Фиксаторы"
+            paragraph: "Kronospan",
+            value: "Kronospan"
         },
         {
-            paragraph: "Ограничитель дверной",
-            value: "Ограничитель дверной"
-        }
+            paragraph: "Vesterhof",
+            value: "Vesterhof"
+        },
+        {
+            paragraph: "Yildizentegre",
+            value: "Yildizentegre"
+        },
+        {
+            paragraph: "AGT",
+            value: "AGT"
+        },
+        {
+            paragraph: "Design Collection",
+            value: "Design Collection"
+        },
+        {
+            paragraph: "Camsen",
+            value: "Camsen"
+        },
     ]
     const GoRight = () => {
         if (currnum < Math.ceil(indoors.length / 12)){
@@ -168,7 +213,7 @@ const Laminate = () => {
     }
     const Card = (props: CardProps) => {
         return(
-            <Link href={"/catalog/furniture/1"} className={styles.Card}>
+            <Link href={"/catalog/quartzvinyl/1"} className={styles.Card}>
                 <Image src={props.img} className={styles.Card_Img} alt='door'></Image>
                 <div className={styles.Card_Info}>
                     <p>{props.name}</p>
@@ -183,7 +228,7 @@ const Laminate = () => {
             <div className={styles.CatalogHeader}>
                 <Link href="/#catalog" className={styles.CatalogHeader_Link}>Каталог</Link>
                 <Image src={arrow} width={12} height={12} alt='arrow' style={{transform: "rotate(90deg)"}} ></Image>
-                <Link href="/catalog/furniture" className={styles.CatalogHeader_Link}>Дверная фурнитура</Link>
+                <Link href="/catalog/indoors" className={styles.CatalogHeader_Link}>Кварцвинил</Link>
             </div>
             <div className={styles.Products}>
                 <div className={styles.Products_Filters}>
@@ -199,14 +244,41 @@ const Laminate = () => {
                         <div style={{overflow: "hidden", height: `${priceshow ? "max-content" : "0px"}`, width: "100%"}}><DoubleRange min={0} max={100} /></div>
                     </div>
                     <div className={styles.Products_Filters_Filter}>
-                        <div className={styles.Products_Filters_Checkbox} onClick={() => setMaterialShow(!materialshow)}>
-                            <p>Тип фурнитуры</p>
-                            <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${materialshow ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
+                        <div className={styles.Products_Filters_Checkbox} onClick={() => setBaseShow(!baseShow)}>
+                            <p>Основа</p>
+                            <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${baseShow ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
                         </div>
-                        <div style={{overflow: "hidden", height: `${materialshow ? "max-content" : "0px"}`, width: "100%"}}>
+                        <div style={{overflow: "hidden", height: `${baseShow ? "max-content" : "0px"}`, width: "100%"}}>
                             <div className={styles.CheckBoxes}>
-                                <CheckBoxes CheckBoxList={type}/>
+                                <CheckBoxes CheckBoxList={base}/>
                             </div>
+                        </div>
+                    </div>
+                    <div className={styles.Products_Filters_Filter}>
+                        <div className={styles.Products_Filters_Checkbox} onClick={() => setShowType(!showType)}>
+                            <p>Тип укладки</p>
+                            <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${showType ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
+                        </div>
+                        <div style={{overflow: "hidden", height: `${showType ? "max-content" : "0px"}`, width: "100%"}}>
+                            <CheckBoxes CheckBoxList={type} />
+                        </div>
+                    </div>
+                    <div className={styles.Products_Filters_Filter}>
+                        <div className={styles.Products_Filters_Checkbox} onClick={() => setShowFask(!showFask)}>
+                            <p>Фаска</p>
+                            <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${showFask ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
+                        </div>
+                        <div style={{overflow: "hidden", height: `${showFask ? "max-content" : "0px"}`, width: "100%"}}>
+                            <CheckBoxes CheckBoxList={fask} />
+                        </div>
+                    </div>
+                    <div className={styles.Products_Filters_Filter}>
+                        <div className={styles.Products_Filters_Checkbox} onClick={() => setShowCreater(!showCreater)}>
+                            <p>Производитель</p>
+                            <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${showCreater ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
+                        </div>
+                        <div style={{overflow: "hidden", height: `${showCreater ? "max-content" : "0px"}`, width: "100%"}}>
+                            <CheckBoxes CheckBoxList={creater} />
                         </div>
                     </div>
                 </div>
@@ -224,14 +296,41 @@ const Laminate = () => {
                             <div style={{overflow: "hidden", height: `${priceshow ? "max-content" : "0px"}`, width: "100%"}}><DoubleRange min={0} max={100} /></div>
                         </div>
                         <div className={styles.Products_Filters_Filter}>
-                            <div className={styles.Products_Filters_Checkbox} onClick={() => setMaterialShow(!materialshow)}>
-                                <p>Тип фурнитуры</p>
-                                <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${materialshow ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
+                            <div className={styles.Products_Filters_Checkbox} onClick={() => setBaseShow(!baseShow)}>
+                                <p>Основа</p>
+                                <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${baseShow ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
                             </div>
-                            <div style={{overflow: "hidden", height: `${materialshow ? "max-content" : "0px"}`, width: "100%"}}>
+                            <div style={{overflow: "hidden", height: `${baseShow ? "max-content" : "0px"}`, width: "100%"}}>
                                 <div className={styles.CheckBoxes}>
-                                    <CheckBoxes CheckBoxList={type}/>
+                                    <CheckBoxes CheckBoxList={base}/>
                                 </div>
+                            </div>
+                        </div>
+                        <div className={styles.Products_Filters_Filter}>
+                            <div className={styles.Products_Filters_Checkbox} onClick={() => setShowType(!showType)}>
+                                <p>Тип укладки</p>
+                                <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${showType ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
+                            </div>
+                            <div style={{overflow: "hidden", height: `${showType ? "max-content" : "0px"}`, width: "100%"}}>
+                                <CheckBoxes CheckBoxList={type} />
+                            </div>
+                        </div>
+                        <div className={styles.Products_Filters_Filter}>
+                            <div className={styles.Products_Filters_Checkbox} onClick={() => setShowFask(!showFask)}>
+                                <p>Фаска</p>
+                                <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${showFask ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
+                            </div>
+                            <div style={{overflow: "hidden", height: `${showFask ? "max-content" : "0px"}`, width: "100%"}}>
+                                <CheckBoxes CheckBoxList={fask} />
+                            </div>
+                        </div>
+                        <div className={styles.Products_Filters_Filter}>
+                            <div className={styles.Products_Filters_Checkbox} onClick={() => setShowCreater(!showCreater)}>
+                                <p>Производитель</p>
+                                <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${showCreater ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
+                            </div>
+                            <div style={{overflow: "hidden", height: `${showCreater ? "max-content" : "0px"}`, width: "100%"}}>
+                                <CheckBoxes CheckBoxList={creater} />
                             </div>
                         </div>
                     </div>
@@ -265,4 +364,4 @@ const Laminate = () => {
     );
 }
  
-export default Laminate;
+export default Quartzvinyl;

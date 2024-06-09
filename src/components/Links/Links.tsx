@@ -18,15 +18,21 @@ const Links = () => {
                     <p>Открыть в каталоге</p>
                 </div>
             </Link>
-            <Link href={"/catalog/furniture"} prefetch={true} className={classNames(styles.Card, styles.Garniture)}>
+            <Link href={"/catalog/laminate"} prefetch={true} className={classNames(styles.Card, styles.Laminate)}>
                 <div className={styles.Card_Text}>
-                    <h1>Дверная фурнитура</h1>
+                    <h1>Ламинат</h1>
                     <p>Открыть в каталоге</p>
                 </div>
             </Link>
-            <Link href={"/catalog/floor"} prefetch={true} className={classNames(styles.Card, styles.Floor)}>
+            <Link href={"/catalog/quartzvinyl"} prefetch={true} className={classNames(styles.Card, styles.Quartzvinil)}>
                 <div className={styles.Card_Text}>
-                    <h1>Напольное покрытие</h1>
+                    <h1>Кварцвинил</h1>
+                    <p>Открыть в каталоге</p>
+                </div>
+            </Link>
+            <Link href={"/catalog/furniture"} prefetch={true} className={classNames(styles.Card, styles.Garniture)}>
+                <div className={styles.Card_Text}>
+                    <h1>Дверная фурнитура</h1>
                     <p>Открыть в каталоге</p>
                 </div>
             </Link>

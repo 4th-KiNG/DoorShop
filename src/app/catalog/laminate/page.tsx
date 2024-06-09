@@ -2,7 +2,7 @@ import Header from "@/components/Header/Header";
 import '../../globals.css'
 import '../../../../public/fonts/lato.css'
 import Footer from "@/components/Footer/Footer";
-import Floor from "@/components/Catalog/Floor/Floor";
+import Laminate from "@/components/Catalog/Laminate/Laminate";
 import { Suspense } from 'react'
 import type { Metadata } from "next";
 
@@ -23,7 +23,7 @@ const FloorPage = () => {
         <div>
             <Header></Header>
             <Suspense>
-                <Floor></Floor>
+                <Laminate></Laminate>
             </Suspense>
             <Footer></Footer>
         </div>

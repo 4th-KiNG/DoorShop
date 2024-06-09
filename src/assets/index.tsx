@@ -21,7 +21,9 @@ import slide1 from './slide1.jpeg'
 import slide2 from './slide2.jpeg'
 import filter from './filter.svg'
 import arrowdown from './arrowdown.svg'
+import search from './search.svg'
 export{
+    search,
     arrowdown,
     filter,
     slide1,

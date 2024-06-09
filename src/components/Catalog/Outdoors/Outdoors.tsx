@@ -3,7 +3,7 @@ import styles from './Outdoors.module.scss'
 import Link from 'next/link';
 import Image, { StaticImageData } from 'next/image';
 import {useState, useRef, useEffect} from 'react'
-import { arrow, arrowdown, cross, filter } from '@/assets';
+import { arrow, arrowdown, cross, filter, search } from '@/assets';
 import Head from 'next/head';
 import Slider from "rc-slider";
 import 'rc-slider/assets/index.css';
@@ -172,16 +172,6 @@ const Indoors = () => {
         {id: "2001", img: d2, name: "Дверь №2", price: "4000", material: "Пластик"},
         {id: "2001", img: d3, name: "Дверь №3", price: "1000", material: "Шпон"},
     ]
-    const handleClick = (e: any) => {
-        //@ts-ignore
-        if (ref.current && !ref.current.contains(e.target)){
-            OpenImage(img)
-        }
-    }
-    const OpenImage = (ig: StaticImageData) => {
-        setImg(ig)
-        setShowimg(!showimg)
-    }
     const Card = (props: CardProps) => {
         return(
             <Link href={"/catalog/outdoors/1"} className={styles.Card}>
@@ -288,25 +278,24 @@ const Indoors = () => {
                         </div>
                     </div>
                 </div>
-                <div className={styles.Products_Cards}>
-                    {indoors.slice(0, listSlice + 12).map((card: CardProps) => {
-                        return(
-                            <Card {...card}></Card>
-                        )
-                    })}
+                <div>
+                    <div className={styles.InputWithIco}>
+                        <Image className={styles.InputWithIco_Ico} src={search} alt='search' />
+                        <input className={styles.InputWithIco_Input} placeholder='Введите имя товара' type="text" />
+                    </div>
+                    <div className={styles.Products_Cards}>
+                        {indoors.slice(0, listSlice + 12).map((card: CardProps) => {
+                            return(
+                                <Card {...card}></Card>
+                            )
+                        })}
+                    </div>
                 </div>
                 <div className={styles.Cards_Arrows}>
                 {currnum < Math.ceil(indoors.length / 12) && <button onClick={GoRight} className={styles.MoreBtn}>Посмотреть ещё</button>}
                 </div>
             </div>
         </div>
-        {showimg && 
-        <div className={styles.OpenImage} onClick={handleClick}>
-            <div style={{display: "flex"}}>
-                <Image className={styles.OpenImage_Img} src={img} ref={ref} alt=''></Image>
-                <Image src={cross} className={styles.OpenImage_Cross} width={50} height={50} onClick={() => OpenImage(img)} alt=''></Image>
-            </div>
-        </div>}
         </>
     );
 }

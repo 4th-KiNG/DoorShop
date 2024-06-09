@@ -126,8 +126,8 @@
         min-width: 150px;
         width: 100%;
     }
-    &_Info{
-    
+    @media (max-width: 800px) {
+        font-size: 18px;
     }
     &_Img{
         max-width: 250px;
@@ -189,7 +189,6 @@
         }
     }
 }
-
 .InputWithIco{
     display: flex;
     border: 1px #999999 solid;
