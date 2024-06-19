@@ -1,225 +1,128 @@
 'use client'
 import styles from './Quartzvinyl.module.scss'
 import Link from 'next/link';
-import Image, { StaticImageData } from 'next/image';
-import {useState, useRef, useEffect} from 'react'
-import { arrow, arrowdown, cross, filter, search } from '@/assets';
-import Head from 'next/head';
-import Slider from "rc-slider";
-import 'rc-slider/assets/index.css';
-import styles1 from '@/components/ui/DoubleRange/DoubleRange.module.scss'
-import '@/components/ui/DoubleRange/DoubleRange.css'
-import { d1, d2, d3,} from '@/catalog';
+import Image from 'next/image';
+import {useState, useRef, useEffect } from 'react'
+import { arrow, search } from '@/assets';
+import { useQuery } from 'react-query';
+import axios from 'axios';
+import { IP, TOKEN } from '@/consts/consts';
+import { fask, creater, type, base } from './filterLists';
+import { Filters } from '../ui/ui';
+import { Filter, QuartzvinylProps } from '../types/types';
+import { ProductList } from './products/products';
+import LoadingPage from '@/components/Loading/LoadingPage/LoadingPage';
 
-interface CardProps{
-    id: string,
-    img: StaticImageData,
-    name: string,
-    price: string,
-    material: string
-}
-
-interface RangeProps {
-    min: number;
-    max: number;
-}
-
-interface CheckBox{
-    paragraph: string,
-    value: string
-}
-
-interface CheckBoxes{
-    CheckBoxList: CheckBox[]
-}
-
-const DoubleRange = ({ min, max }: RangeProps) => {
-    const [range, setRange] = useState([min, max]);
-
-    const handleSliderChange = (newRange: any) => {
-        setRange(newRange);
-    };
-
-    const handleInputChange = (index: number, value: number) => {
-        const newRange = [...range];
-        newRange[index] = value;
-        if (newRange[0] <= newRange[1]) {
-            setRange(newRange);
-        }
-    };
-
-    return (
-        <>
-            <div className={styles1.Inputs}>
-                <input
-                    className={styles1.Inputs_Input}
-                    type="number"
-                    onChange={(e) => handleInputChange(0, parseInt(e.target.value))}
-                    value={range[0]}
-                    min={min}
-                    max={max}
-                />
-                <input
-                    className={styles1.Inputs_Input}
-                    type="number"
-                    onChange={(e) => handleInputChange(1, parseInt(e.target.value))}
-                    value={range[1]}
-                    min={min}
-                    max={max}
-                />
-            </div>
-            <Slider
-                range
-                min={min}
-                max={max}
-                value={range}
-                onChange={handleSliderChange}
-            />
-        </>
-    );
-}
-
-const CheckBoxes = ({CheckBoxList} : CheckBoxes) => {
-    return(
-        <div className={styles.CheckBoxes}>
-        {CheckBoxList.map((el: CheckBox) => {
-            return(
-                <>
-                <label className={styles.CheckBoxes_CheckBox}>
-                    <input type="checkbox" />
-                    <span>{el.paragraph}</span>
-                </label>
-                </>
-            )
-        })}
-        </div>
-    )
-}
 
 const Quartzvinyl = () => {
     const ref = useRef(null);
     const [listSlice, setListSlice] = useState(0)
     const [currnum, setCurrnum] = useState(1)
-    const [img, setImg] = useState(d1)
-    const [showimg, setShowimg] = useState(false)
     const [priceshow, setPriceShow] = useState(true)
     const [baseShow, setBaseShow] = useState(false)
-    const [showType, setShowType] = useState(false)
-    const [showFask, setShowFask] = useState(false)
-    const [showCreater, setShowCreater] = useState(false)
+    const [typeShow, setTypeShow] = useState(false)
+    const [createrShow, setCreaterShow] = useState(false)
+    const [faskShow, setFaskShow] = useState(false)
     const [showMobileFilters, setShowMobileFilters] = useState(false)
-    const base = [
-        {
-            paragraph: "SPC",
-            value: "SPC"
-        },
-        {
-            paragraph: "Кварц-винил",
-            value: "Кварц-винил"
-        },
-        {
-            paragraph: "ABA",
-            value: "ABA"
-        },
-        {
-            paragraph: "WPC",
-            value: "WPC"
-        }
-    ]
-    const type = [
-        {
-            paragraph: "Замковый",
-            value: "Замковый"
-        },
-        {
-            paragraph: "Клеевой",
-            value: "Клеевой"
-        },
-    ]
-    const fask = [
-        {
-            paragraph: "Нет",
-            value: "Нет"
-        },
-        {
-            paragraph: "Микро",
-            value: "Микро"
-        },
-        {
-            paragraph: "V4",
-            value: "V4"
-        },
-    ]
-    const creater = [
-        {
-            paragraph: "Tarkett",
-            value: "Tarkett"
-        },
-        {
-            paragraph: "Art",
-            value: "Art"
-        },
-        {
-            paragraph: "Kronospan",
-            value: "Kronospan"
-        },
-        {
-            paragraph: "Vesterhof",
-            value: "Vesterhof"
-        },
-        {
-            paragraph: "Yildizentegre",
-            value: "Yildizentegre"
-        },
-        {
-            paragraph: "AGT",
-            value: "AGT"
-        },
-        {
-            paragraph: "Design Collection",
-            value: "Design Collection"
-        },
-        {
-            paragraph: "Camsen",
-            value: "Camsen"
-        },
-    ]
-    const GoRight = () => {
-        if (currnum < Math.ceil(indoors.length / 12)){
+    const [minmax, setMinMax] = useState([0,100000])
+    const [priceFilter, setPriceFilter] = useState<number[]>([minmax[0], minmax[1]])
+    const [searchtext, setSearchText] = useState<string>("")
+    const [quartzvinyl, setQuartzvinyl] = useState<QuartzvinylProps[]>([])
+    const [filters, setFilters] = useState<any>({       // состояние фильтров
+        base: [],
+        installationType: [],
+        bevel: [],
+        manufacturer: []
+    })
+
+    const GetProducts = async () => {
+        const {data} = await axios({
+            method: "get",
+            url: `${IP}/catalog/category/quartzvinyl/all`
+        })
+        return data.products
+    }
+    const {data: products, isLoading} = useQuery("quartzvinyl", GetProducts)
+    const ShowMore = () => {
+        if (currnum < Math.ceil(quartzvinyl.length / 12)){
             setCurrnum(currnum + 1)
             setListSlice(listSlice + 12)
         }
     }
-    const indoors = [
-        {id: "2001", img: d1, name: "Дверь №1", price: "3000", material: "Дерево"},
-        {id: "2001", img: d2, name: "Дверь №2", price: "4000", material: "Пластик"},
-        {id: "2001", img: d3, name: "Дверь №3", price: "1000", material: "Шпон"},
-        {id: "2001", img: d1, name: "Дверь №1", price: "3000", material: "Дерево"},
-        {id: "2001", img: d2, name: "Дверь №2", price: "4000", material: "Пластик"},
-        {id: "2001", img: d3, name: "Дверь №3", price: "1000", material: "Шпон"},
-        {id: "2001", img: d1, name: "Дверь №1", price: "3000", material: "Дерево"},
-        {id: "2001", img: d2, name: "Дверь №2", price: "4000", material: "Пластик"},
-        {id: "2001", img: d3, name: "Дверь №3", price: "1000", material: "Шпон"},
-    ]
-    const handleClick = (e: any) => {
-        //@ts-ignore
-        if (ref.current && !ref.current.contains(e.target)){
-            OpenImage(img)
+    
+    useEffect(() => {       // при обновлении useQuery переприсваивание массива и максимальной и минимальной цены
+        if (products != undefined && products.length != 0){
+            console.log(products)
+            setQuartzvinyl(products)
+            setMinMax(
+                [products != undefined ? products.reduce((min: QuartzvinylProps, current: QuartzvinylProps) => {
+                return current.price < min.price ? current : min;
+                }, products[0]).price / 100 : 0,
+                products != undefined ? products.reduce((max: QuartzvinylProps, current: QuartzvinylProps) => {
+                return current.price > max.price ? current : max;
+                }, products[0]).price / 100 : 0])
         }
+    }, [products])
+    
+    useEffect(() => {       // присваивание фильтру цены новые значения при изменении массива
+        setPriceFilter(minmax)
+    }, [minmax])
+
+    useEffect(() => {       // фильтрация массива при изменении фильтров
+        setQuartzvinyl(products != undefined ? products.filter((door: QuartzvinylProps) => (
+            (door.name.includes(searchtext) || searchtext.length == 0) &&
+            (door.price / 100 >= priceFilter[0] && door.price / 100 <= priceFilter[1]) && 
+            (filters.base.includes(door.details.base) || filters.base.length == 0) &&
+            (filters.installationType.includes(door.details.installationType) || filters.installationType.length == 0) &&
+            (filters.bevel.includes(door.details.bevel) || filters.bevel.length == 0) &&
+            (filters.manufacturer.includes(door.details.manufacturer) || filters.manufacturer.length == 0)
+        )) : [])
+    }, [filters, priceFilter, searchtext])
+
+    const handlePriceFilter = (e: any) => setPriceFilter(e)
+    const handleMinChange = (e: any) => setPriceFilter([Number(e.target.value), priceFilter[1]])
+    const handleMaxChange = (e: any) => setPriceFilter([priceFilter[0], Number(e.target.value)])
+    const handleSearchText = (e: any) => setSearchText(e.target.value)
+
+    const allFilters : Filter[] = [
+        {
+            name: "Основа",
+            state: baseShow,
+            setState: setBaseShow,
+            CheckBoxList: base
+        },
+        {
+            name: "Тип укладки",
+            state: typeShow,
+            setState: setTypeShow,
+            CheckBoxList: type
+        },
+        {
+            name: "Фаска",
+            state: faskShow,
+            setState: setFaskShow,
+            CheckBoxList: fask
+        },
+        {
+            name: "Производитель",
+            state: createrShow,
+            setState: setCreaterShow,
+            CheckBoxList: creater
+        }
+    ]
+    const props = {
+        priceshow, setPriceShow,
+        priceFilter, minmax,
+        handleMinChange, handleMaxChange, handlePriceFilter, 
+        allFilters,
+        showMobileFilters, setShowMobileFilters,
+        filters, setFilters
     }
-    const OpenImage = (ig: StaticImageData) => {
-        setImg(ig)
-        setShowimg(!showimg)
-    }
-    const Card = (props: CardProps) => {
+    if (isLoading){
         return(
-            <Link href={"/catalog/quartzvinyl/1"} className={styles.Card}>
-                <Image src={props.img} className={styles.Card_Img} alt='door'></Image>
-                <div className={styles.Card_Info}>
-                    <p>{props.name}</p>
-                    <p>от {props.price}</p>
-                </div>
-            </Link>
+            <>
+            <LoadingPage />
+            </>
         )
     }
     return (
@@ -228,138 +131,22 @@ const Quartzvinyl = () => {
             <div className={styles.CatalogHeader}>
                 <Link href="/#catalog" className={styles.CatalogHeader_Link}>Каталог</Link>
                 <Image src={arrow} width={12} height={12} alt='arrow' style={{transform: "rotate(90deg)"}} ></Image>
-                <Link href="/catalog/indoors" className={styles.CatalogHeader_Link}>Кварцвинил</Link>
+                <Link href="/catalog/quartzvinyl" className={styles.CatalogHeader_Link}>Кварцвинил</Link>
             </div>
             <div className={styles.Products}>
-                <div className={styles.Products_Filters}>
-                    <div className={styles.Products_Filters_Title}>
-                        <Image src={filter} alt='filter' width={30} height={30}></Image>
-                        <p>Фильтры</p>
-                    </div>
-                    <div className={styles.Products_Filters_Filter}>
-                        <div className={styles.Products_Filters_Checkbox} onClick={() => setPriceShow(!priceshow)}>
-                            <p>Розничная цена</p>
-                            <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${priceshow ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
-                        </div>
-                        <div style={{overflow: "hidden", height: `${priceshow ? "max-content" : "0px"}`, width: "100%"}}><DoubleRange min={0} max={100} /></div>
-                    </div>
-                    <div className={styles.Products_Filters_Filter}>
-                        <div className={styles.Products_Filters_Checkbox} onClick={() => setBaseShow(!baseShow)}>
-                            <p>Основа</p>
-                            <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${baseShow ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
-                        </div>
-                        <div style={{overflow: "hidden", height: `${baseShow ? "max-content" : "0px"}`, width: "100%"}}>
-                            <div className={styles.CheckBoxes}>
-                                <CheckBoxes CheckBoxList={base}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.Products_Filters_Filter}>
-                        <div className={styles.Products_Filters_Checkbox} onClick={() => setShowType(!showType)}>
-                            <p>Тип укладки</p>
-                            <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${showType ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
-                        </div>
-                        <div style={{overflow: "hidden", height: `${showType ? "max-content" : "0px"}`, width: "100%"}}>
-                            <CheckBoxes CheckBoxList={type} />
-                        </div>
-                    </div>
-                    <div className={styles.Products_Filters_Filter}>
-                        <div className={styles.Products_Filters_Checkbox} onClick={() => setShowFask(!showFask)}>
-                            <p>Фаска</p>
-                            <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${showFask ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
-                        </div>
-                        <div style={{overflow: "hidden", height: `${showFask ? "max-content" : "0px"}`, width: "100%"}}>
-                            <CheckBoxes CheckBoxList={fask} />
-                        </div>
-                    </div>
-                    <div className={styles.Products_Filters_Filter}>
-                        <div className={styles.Products_Filters_Checkbox} onClick={() => setShowCreater(!showCreater)}>
-                            <p>Производитель</p>
-                            <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${showCreater ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
-                        </div>
-                        <div style={{overflow: "hidden", height: `${showCreater ? "max-content" : "0px"}`, width: "100%"}}>
-                            <CheckBoxes CheckBoxList={creater} />
-                        </div>
-                    </div>
-                </div>
-                <div className={styles.Products_Filters_Mobile}>
-                    <div className={styles.Products_Filters_Mobile_Title} onClick={() => setShowMobileFilters(!showMobileFilters)}>
-                        <Image src={filter} className={styles.Products_Filters_Mobile_Ico} alt='filter' width={30} height={30}></Image>
-                        <p>Фильтры</p>
-                    </div>
-                    <div className={styles.Products_Filters_Mobile_Blocks} style={{height: `${showMobileFilters ? "max-content" : "0px"}`}}>
-                        <div className={styles.Products_Filters_Filter}>
-                            <div className={styles.Products_Filters_Checkbox} onClick={() => setPriceShow(!priceshow)}>
-                                <p>Розничная цена</p>
-                                <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${priceshow ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
-                            </div>
-                            <div style={{overflow: "hidden", height: `${priceshow ? "max-content" : "0px"}`, width: "100%"}}><DoubleRange min={0} max={100} /></div>
-                        </div>
-                        <div className={styles.Products_Filters_Filter}>
-                            <div className={styles.Products_Filters_Checkbox} onClick={() => setBaseShow(!baseShow)}>
-                                <p>Основа</p>
-                                <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${baseShow ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
-                            </div>
-                            <div style={{overflow: "hidden", height: `${baseShow ? "max-content" : "0px"}`, width: "100%"}}>
-                                <div className={styles.CheckBoxes}>
-                                    <CheckBoxes CheckBoxList={base}/>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.Products_Filters_Filter}>
-                            <div className={styles.Products_Filters_Checkbox} onClick={() => setShowType(!showType)}>
-                                <p>Тип укладки</p>
-                                <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${showType ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
-                            </div>
-                            <div style={{overflow: "hidden", height: `${showType ? "max-content" : "0px"}`, width: "100%"}}>
-                                <CheckBoxes CheckBoxList={type} />
-                            </div>
-                        </div>
-                        <div className={styles.Products_Filters_Filter}>
-                            <div className={styles.Products_Filters_Checkbox} onClick={() => setShowFask(!showFask)}>
-                                <p>Фаска</p>
-                                <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${showFask ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
-                            </div>
-                            <div style={{overflow: "hidden", height: `${showFask ? "max-content" : "0px"}`, width: "100%"}}>
-                                <CheckBoxes CheckBoxList={fask} />
-                            </div>
-                        </div>
-                        <div className={styles.Products_Filters_Filter}>
-                            <div className={styles.Products_Filters_Checkbox} onClick={() => setShowCreater(!showCreater)}>
-                                <p>Производитель</p>
-                                <Image src={arrowdown} className={styles.Products_Filters_Checkbox_Ico} style={{transform: `${showCreater ? "rotate(180deg)" : ""}`}} alt='arr' width={25} height={25}/>
-                            </div>
-                            <div style={{overflow: "hidden", height: `${showCreater ? "max-content" : "0px"}`, width: "100%"}}>
-                                <CheckBoxes CheckBoxList={creater} />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Filters {...props} />
                 <div>
                     <div className={styles.InputWithIco}>
                         <Image className={styles.InputWithIco_Ico} src={search} alt='search' />
-                        <input className={styles.InputWithIco_Input} placeholder='Введите имя товара' type="text" />
+                        <input className={styles.InputWithIco_Input} placeholder='Введите имя товара' value={searchtext} onChange={handleSearchText} type="text" />
                     </div>
-                    <div className={styles.Products_Cards}>
-                        {indoors.slice(0, listSlice + 12).map((card: CardProps) => {
-                            return(
-                                <Card {...card}></Card>
-                            )
-                        })}
-                    </div>
+                    <ProductList productList={quartzvinyl.slice(0, listSlice + 12)} />
                 </div>
                 <div className={styles.Cards_Arrows}>
-                {currnum < Math.ceil(indoors.length / 12) && <button onClick={GoRight} className={styles.MoreBtn}>Посмотреть ещё</button>}
+                {currnum < Math.ceil(quartzvinyl.length / 12) && <button onClick={ShowMore} className={styles.MoreBtn}>Посмотреть ещё</button>}
                 </div>
             </div>
         </div>
-        {showimg && 
-        <div className={styles.OpenImage} onClick={handleClick}>
-            <div style={{display: "flex"}}>
-                <Image className={styles.OpenImage_Img} src={img} ref={ref} alt=''></Image>
-                <Image src={cross} className={styles.OpenImage_Cross} width={50} height={50} onClick={() => OpenImage(img)} alt=''></Image>
-            </div>
-        </div>}
         </>
     );
 }

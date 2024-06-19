@@ -6,22 +6,46 @@ import Footer from "@/components/Footer/Footer";
 import { useParams } from "next/navigation";
 import { StaticImageData } from "next/image";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from '@/components/ui/ProductPage.module.scss'
 import Link from "next/link";
 import { arrow } from "@/assets";
-import { d1 } from "@/catalog";
+import LoadingPage from "@/components/Loading/LoadingPage/LoadingPage";
+import { useQuery } from "react-query";
+import classNames from "classnames";
 
 interface ProductProps{
-    image: StaticImageData,
-    name: string | undefined,
-    price: number | undefined,
-    description: string | undefined,
-    type: string | undefined
+    id: string,
+    name: string,
+    price: number,
+    description: string,
+    pathImage: string,
+    hardwareType: string
 }
 
 
-const Product = ({name, price, description, image, type} : ProductProps) => {
+const Product = ({name, price, description, pathImage, hardwareType} : ProductProps) => {
+    const GetImage = async () => {
+        if (pathImage != ""){
+            const {data} = await axios({
+                method: "get",
+                url: `${IP}/catalog/image/?pathImage=${pathImage}`,
+                responseType: 'blob',
+            })
+            console.log(data)
+            return URL.createObjectURL(data)
+        }
+        console.log(pathImage)
+        return ""
+    }
+    const {data: image, isLoading} = useQuery(`image=${pathImage}`, GetImage)
+    if (isLoading){
+        return(
+            <>
+            <LoadingPage />
+            </>
+        )
+    }
     return(
         <>
         <div className={styles.ProductPage}>
@@ -33,12 +57,12 @@ const Product = ({name, price, description, image, type} : ProductProps) => {
                 <Link href="/catalog/furniture" className={styles.ProductHeader_Link}>{name}</Link>
             </div>
             <div className={styles.Product}>
-                <Image className={styles.Product_Image} src={image} alt="product" />
+                <img className={styles.Product_Image} src={image} alt="product" />
                 <div className={styles.Product_Info}>
-                    <p className={styles.Product_Info_Base} style={{marginBottom: "20px"}}>ХАРАКТЕРИСТИКИ</p>
+                    <p className={classNames(styles.Product_Info_Base, styles.Product_Info_Props)}>ХАРАКТЕРИСТИКИ</p>
                     <p className={styles.Product_Info_Base}>Название — <span className={styles.Product_Info_Custom}>{name}</span></p>
-                    <p className={styles.Product_Info_Base}>Цена — <span className={styles.Product_Info_Custom}>{price}</span></p>
-                    <p className={styles.Product_Info_Base}>Тип фурнитуры — <span className={styles.Product_Info_Custom}>{type}</span></p>
+                    <p className={styles.Product_Info_Base}>Цена — <span className={styles.Product_Info_Custom}>{price / 100}р</span></p>
+                    <p className={styles.Product_Info_Base}>Тип фурнитуры — <span className={styles.Product_Info_Custom}>{hardwareType}</span></p>
                     <p className={styles.Product_Info_Base}>Описание</p>
                     <span className={styles.Product_Info_Custom}>{description}</span>
                 </div>
@@ -50,15 +74,29 @@ const Product = ({name, price, description, image, type} : ProductProps) => {
 
 const ProductPage = () => {
     const params = useParams()
-    const [name, setName] = useState()
-    const [price, setPrice] = useState()
-    const [description, setDescription] = useState()
-    const [type, setType] = useState()
-    const [image, setImage] = useState()
+    const GetProduct = async () => {
+        const {data} = await axios({
+            method: "get",
+            url: `${IP}/catalog/product?id=${params.id}&type=HARDWARE`,
+        })
+        return data.products
+    }
+    const {data: product, isLoading} = useQuery(`productid=${params.id}`, GetProduct)
+    useEffect(() => {
+        console.log(product)
+    }, [product])
     return (
         <>
         <Header />
-        <Product name={name} price={price} description={description} type={type} image={d1} />
+        {isLoading ? <LoadingPage /> : 
+        <Product
+            id={product != undefined ? product.id : ""}
+            name={product != undefined ? product.name : ""} 
+            price={product != undefined ? product.price : ""} 
+            description={product != undefined ? product.description : ""}
+            pathImage={product != undefined ? product.pathImage : ""}
+            hardwareType={product != undefined ? product.details.hardwareType : ""}
+        />}
         <Footer />
         </>
     );

@@ -1,0 +1,44 @@
+.LoadingPage{
+    width: 100vw;
+    height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Bounser{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    &>div{
+        width: 15px;
+        height: 15px;
+        background-color: black;
+        border-radius: 50%;
+        animation: bouncer 0.5s cubic-bezier(0.19, 0.57, 0.3, 0.98) infinite alternate;
+        &:nth-of-type(2){
+            opacity: 0.8;
+            animation-delay: 0.1s;
+        }
+        &:nth-of-type(3){
+            opacity: 0.6;
+            animation-delay: 0.2s;
+        }
+        &:nth-of-type(4){
+            opacity: 0.4;
+            animation-delay: 0.3s;
+        }
+    }
+}
+
+@keyframes bouncer {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100px);
+    }
+}
